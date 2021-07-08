@@ -1,32 +1,37 @@
 import React from "react";
 import { useEffect } from "react";
-import $ from "jquery";
 
 const Editor = () => {
-  useEffect(() => {
+  // resize cover image to fit the view
+  const resizeCoverImage = () => {
     const cover_image = document.getElementById("cover_image");
 
     // get width and height of cover_image
     const maxWidth = cover_image.offsetWidth;
     const maxHeight = cover_image.offsetHeight;
 
-    window.onresize = () => {
-      // get width and height of window
-      const width = window.innerWidth;
-      const height = window.innerHeight;
+    // get width and height of window
+    const width = window.innerWidth;
+    const height = window.innerHeight;
 
-      let scale; // scale to be used
+    let scale; // scale to be used
 
-      // early exit
-      if (width >= maxWidth && height >= maxHeight) {
-        cover_image.style.transform = "";
-        return;
-      }
+    // early exit
+    if (width >= maxWidth && height >= maxHeight) {
+      cover_image.style.transform = "";
+      return;
+    }
 
-      scale = Math.min(width / maxWidth, height / maxHeight); // trick to get scale
+    scale = Math.min(width / maxWidth, height / maxHeight); // trick to get scale
 
-      cover_image.style.transform = `scale(${scale})`; // transform scale applied
-    };
+    cover_image.style.transform = `scale(${scale})`; // transform scale applied
+  };
+
+  // useEffect to control window resize and all
+  useEffect(() => {
+    resizeCoverImage();
+
+    window.addEventListener("resize", resizeCoverImage);
   });
 
   return (
