@@ -1,2 +1,6 @@
 // core components
 export { default as LeftBar } from "./core/LeftBar";
+export { default as Editor } from "./core/Editor";
+
+// templates
+export { default as Template1 } from "./templates/Template1";

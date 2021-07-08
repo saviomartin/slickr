@@ -1,0 +1,22 @@
+@import url(https://fonts.googleapis.com/css?family=Epilogue:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Epilogue", sans-serif;
+}
+
+*:focus {
+  outline: none !important;
+}
+#wrap {
+  position: relative;
+  width: 1200px;
+  height: 630px;
+  background-color: red;
+}
+#outer {
+  position: relative;
+  width: 1200px;
+  height: 630px;
+}
