@@ -9,14 +9,10 @@
 *:focus {
   outline: none !important;
 }
-#wrap {
+
+#cover_image {
   position: relative;
   width: 1200px;
   height: 630px;
-  background-color: red;
-}
-#outer {
-  position: relative;
-  width: 1200px;
-  height: 630px;
+  background-color: blue;
 }
