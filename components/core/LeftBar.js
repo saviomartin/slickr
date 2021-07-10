@@ -60,13 +60,14 @@ const LeftBar = () => {
             />
           ))}
         </Tabs>
-        <Btn>
-          <div className="w-[85px] h-[60px] flex flex-col items-center justify-center text-[#0F84B4]">
-            <FiTwitter className="text-xl mb-1" />
-            <h3 className="text-xs font-medium lowercase">Share</h3>
-          </div>
-          <div className="mx-[7.5px] w-[70px] h-[60px] absolute top-0 left-0 bg-[#0F84B425] rounded-md"></div>
-        </Btn>
+        <div className="w-[85px] h-[60px] flex flex-col items-center justify-center">
+          <Btn>
+            <div className="w-[70px] h-[60px] bg-[#0F84B425] rounded-md flex flex-col items-center justify-center text-[#0F84B4]">
+              <FiTwitter className="text-xl mb-1" />
+              <h3 className="text-xs font-medium lowercase">Share</h3>
+            </div>
+          </Btn>
+        </div>
       </div>
       {value}
     </div>
