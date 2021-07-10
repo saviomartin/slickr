@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Tab, Tabs } from "@material-ui/core";
-import { FiEdit, FiFolder, FiUploadCloud } from "react-icons/fi";
+import { FiEdit, FiFolder, FiTwitter, FiUploadCloud } from "react-icons/fi";
 import { IoShapesOutline } from "react-icons/io5";
+import Btn from "../utils/Btn";
 
 const TabItem = ({ tab }) => {
   return (
@@ -42,7 +43,7 @@ const LeftBar = () => {
 
   return (
     <div className="h-full absolute lg:relative xl:relative w-10/12 lg:w-[32.5%] xl:w-[32.5%] flex bg-[#F1F5FB] border-r border-[#564BB330] white-light-shadow">
-      <div className="h-full bg-[#fff] border-r border-[#564BB330] white-light-shadow">
+      <div className="h-full bg-[#fff] border-r border-[#564BB330] white-light-shadow py-3 flex flex-col items-center justify-between">
         <Tabs
           value={value}
           onChange={handleChange}
@@ -59,6 +60,13 @@ const LeftBar = () => {
             />
           ))}
         </Tabs>
+        <Btn>
+          <div className="w-[85px] h-[60px] flex flex-col items-center justify-center text-[#0F84B4]">
+            <FiTwitter className="text-xl mb-1" />
+            <h3 className="text-xs font-medium lowercase">Share</h3>
+          </div>
+          <div className="mx-[7.5px] w-[70px] h-[60px] absolute top-0 left-0 bg-[#0F84B425] rounded-md"></div>
+        </Btn>
       </div>
       {value}
     </div>
