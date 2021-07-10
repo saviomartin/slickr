@@ -20,3 +20,10 @@
 .white-light-shadow {
   box-shadow: 0 14px 36px rgb(0 0 0 / 3%), 0 30px 60px rgb(0 0 0 / 2%);
 }
+
+.bg-graient {
+  background: linear-gradient(#2c3c96, #564bb3, #ae64db);
+}
+.bg-app-graient-to-l {
+  background: linear-gradient(to left, #2c3c96, #564bb3, #ae64db);
+}

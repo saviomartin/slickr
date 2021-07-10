@@ -43,6 +43,7 @@ const LeftBar = () => {
 
   return (
     <div className="h-full absolute lg:relative xl:relative w-10/12 lg:w-[32.5%] xl:w-[32.5%] flex bg-[#F1F5FB] border-r border-[#564BB330] white-light-shadow">
+      <div className="bg-graient h-full w-[10px] bg-gradient-to-b"></div>
       <div className="h-full bg-[#fff] border-r border-[#564BB330] white-light-shadow py-3 flex flex-col items-center justify-between">
         <Tabs
           value={value}
