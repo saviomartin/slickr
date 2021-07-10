@@ -1,10 +1,14 @@
-import { TextField } from "@material-ui/core";
-import React from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
-import { FiDownload } from "react-icons/fi";
+import { FiDownload, FiMoon, FiSun } from "react-icons/fi";
 import Btn from "../utils/Btn";
+// menu from material ui
+import Menu from "@material-ui/core/Menu";
+import { MenuItem } from "@material-ui/core";
 
-const Editor = () => {
+const Editor = ({ darkMode, setDarkMode }) => {
+  const [anchorEl, setAnchorEl] = useState(null);
+
   // resize cover image to fit the view
   const resizeCoverImage = () => {
     const cover_image = document.getElementById("cover_image");
@@ -46,13 +50,55 @@ const Editor = () => {
           className="bg-white px-3 p-[7px] border border-[#564BB330] rounded-md"
           value="Untitled Design"
         />
-        <Btn>
-          <div className="px-4 p-[8px] text-white bg-app-graient-to-l rounded-md flex items-center justify-center capitalize">
-            Download
-            <FiDownload className="text-xl ml-2" />
-          </div>
-        </Btn>
+        <div className="flex">
+          <Btn onClick={() => setDarkMode(!darkMode)}>
+            <div className="px-2 rounded-md p-[8px] flex items-center justify-center text-[#222]">
+              {darkMode ? (
+                <FiMoon className="text-xl" />
+              ) : (
+                <FiSun className="text-xl" />
+              )}
+            </div>
+          </Btn>
+          <div className="ml-1"></div>
+          <Btn onClick={(e) => setAnchorEl(e.currentTarget)}>
+            <div className="px-4 p-[8px] text-white bg-app-graient-to-l rounded-md flex items-center justify-center capitalize">
+              Download
+              <FiDownload className="text-xl ml-2" />
+            </div>
+          </Btn>
+          <Menu
+            getContentAnchorEl={null}
+            className="!mt-1 !min-w-0 !block"
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "right",
+            }}
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "right",
+            }}
+            keepMounted
+            anchorEl={anchorEl}
+            open={Boolean(anchorEl)}
+            onClose={() => setAnchorEl(null)}
+          >
+            <MenuItem>
+              <div className="flex font-semibold">
+                Download as PNG
+                <FiDownload className="text-xl ml-2 text-[#564BB3]" />
+              </div>
+            </MenuItem>
+            <MenuItem>
+              <div className="flex font-semibold">
+                Download as JPG
+                <FiDownload className="text-xl ml-3 text-[#564BB3]" />
+              </div>
+            </MenuItem>
+          </Menu>
+        </div>
       </div>
+
       <div className="h-full overflow-hidden w-full relative flex items-center justify-center container">
         <div className="scale-[.85]">
           <div id="cover_image">

@@ -1,11 +1,11 @@
 import React from "react";
 import { LeftBar, Editor } from "..";
 
-const Template1 = () => {
+const Template1 = (props) => {
   return (
     <div className="w-full h-[100vh] flex overflow-hidden">
-      <LeftBar />
-      <Editor />
+      <LeftBar {...props} />
+      <Editor {...props} />
     </div>
   );
 };
