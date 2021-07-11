@@ -55,6 +55,17 @@ const Editor = ({ darkMode, setDarkMode }) => {
     });
   };
 
+  const downloadAsJpg = () => {
+    const coverImage = document.querySelector("#cover_image_download");
+
+    html2canvas(coverImage).then(function (canvas) {
+      const a = document.createElement("a");
+      a.href = canvas.toDataURL("image/jpeg");
+      a.download = "code" + ".jpg";
+      a.click();
+    });
+  };
+
   return (
     <div className="h-full w-full lg:w-[67.5%] xl:w-[67.5%] relative bg-white flex items-center justify-center flex-col">
       <div
@@ -116,7 +127,7 @@ const Editor = ({ darkMode, setDarkMode }) => {
               </div>
             </MenuItem>
             <MenuItem>
-              <div className="flex font-semibold">
+              <div className="flex font-semibold" onClick={downloadAsJpg}>
                 Download as JPG
                 <FiDownload className="text-xl ml-3 text-[#564BB3]" />
               </div>
