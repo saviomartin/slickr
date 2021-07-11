@@ -13,7 +13,7 @@ const Editor = ({ darkMode, setDarkMode }) => {
 
   // resize cover image to fit the view
   const resizeCoverImage = () => {
-    const cover_image = document.getElementById("cover_image");
+    const cover_image = document.querySelector("#cover_image_preview");
     const container = document.querySelector(".container");
 
     // get width and height of cover_image
@@ -44,8 +44,31 @@ const Editor = ({ darkMode, setDarkMode }) => {
     window.addEventListener("resize", resizeCoverImage);
   });
 
+  const downloadAsPng = () => {
+    const coverImage = document.querySelector("#cover_image_download");
+
+    html2canvas(coverImage).then(function (canvas) {
+      const a = document.createElement("a");
+      a.href = canvas.toDataURL("image/png");
+      a.download = "code" + ".png";
+      a.click();
+    });
+  };
+
   return (
     <div className="h-full w-full lg:w-[67.5%] xl:w-[67.5%] relative bg-white flex items-center justify-center flex-col">
+      <div
+        id="cover_image_download"
+        className="absolute z-[-10] cover_image bg-blue-700"
+      >
+        <p className="text-5xl">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero nemo
+          laborum consectetur saepe, qui nisi possimus maiores id, est non
+          numquam! Id facilis vero quasi voluptatem ad blanditiis ullam error
+          architecto reprehenderit nisi? Ratione omnis quia qui. Laborum,
+          aspernatur sequi?
+        </p>
+      </div>
       <div className="w-full bg-[#EFF1FE] h-[70px] relative border-b border-[#564BB330] flex items-center justify-between px-3">
         <input
           type="text"
@@ -87,7 +110,7 @@ const Editor = ({ darkMode, setDarkMode }) => {
             onClose={() => setAnchorEl(null)}
           >
             <MenuItem>
-              <div className="flex font-semibold">
+              <div className="flex font-semibold" onClick={downloadAsPng}>
                 Download as PNG
                 <FiDownload className="text-xl ml-2 text-[#564BB3]" />
               </div>
@@ -101,10 +124,12 @@ const Editor = ({ darkMode, setDarkMode }) => {
           </Menu>
         </div>
       </div>
-
       <div className="h-full overflow-hidden w-full relative flex items-center justify-center container">
         <div className="scale-[.85]">
-          <div id="cover_image">
+          <div
+            id="cover_image_preview"
+            className="relative cover_image bg-blue-700"
+          >
             <p className="text-5xl">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero nemo
               laborum consectetur saepe, qui nisi possimus maiores id, est non

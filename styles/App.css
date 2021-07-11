@@ -10,11 +10,9 @@
   outline: none !important;
 }
 
-#cover_image {
-  position: relative;
+.cover_image {
   width: 1200px;
   height: 630px;
-  background-color: blue;
 }
 
 .white-light-shadow {
