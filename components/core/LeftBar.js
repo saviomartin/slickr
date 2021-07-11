@@ -1,7 +1,13 @@
 import React, { useState } from "react";
+
+// material vertical tabs
 import { Tab, Tabs } from "@material-ui/core";
+
+// icons
 import { FiEdit, FiFolder, FiTwitter, FiUploadCloud } from "react-icons/fi";
 import { IoShapesOutline } from "react-icons/io5";
+
+// material btn
 import Btn from "../utils/Btn";
 
 const TabItem = ({ tab }) => {
@@ -22,6 +28,7 @@ const LeftBar = () => {
     setValue(newValue);
   };
 
+  // mapping of tabs
   const allTabs = [
     {
       name: "home",
