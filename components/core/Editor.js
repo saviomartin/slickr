@@ -14,7 +14,7 @@ import { MenuItem } from "@material-ui/core";
 import html2canvas from "html2canvas";
 
 const Editor = ({ darkMode, setDarkMode }) => {
-  const [anchorEl, setAnchorEl] = useState(null);
+  const [anchorEl, setAnchorEl] = useState(null); // for menu
   const [fileName, setFileName] = useState("Untitled Design");
 
   // resize cover image to fit the view
