@@ -7,3 +7,6 @@ export { default as Btn } from "./utils/Btn";
 
 // templates
 export { default as Template1 } from "./templates/Template1";
+
+// NoSsr
+export { default as NoSsr } from "./NoSSr";

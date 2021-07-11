@@ -5,9 +5,11 @@ import Btn from "../utils/Btn";
 // menu from material ui
 import Menu from "@material-ui/core/Menu";
 import { MenuItem } from "@material-ui/core";
+import html2canvas from "html2canvas";
 
 const Editor = ({ darkMode, setDarkMode }) => {
   const [anchorEl, setAnchorEl] = useState(null);
+  const [fileName, setFileName] = useState("Untitled Design");
 
   // resize cover image to fit the view
   const resizeCoverImage = () => {
@@ -48,7 +50,8 @@ const Editor = ({ darkMode, setDarkMode }) => {
         <input
           type="text"
           className="bg-white px-3 p-[7px] border border-[#564BB330] rounded-md"
-          value="Untitled Design"
+          value={fileName}
+          onChange={(e) => setFileName(e.target.value)}
         />
         <div className="flex">
           <Btn onClick={() => setDarkMode(!darkMode)}>
