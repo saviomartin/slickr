@@ -1,10 +1,16 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
+
+// icons
 import { FiDownload, FiMoon, FiSun } from "react-icons/fi";
+
+// material btn
 import Btn from "../utils/Btn";
+
 // menu from material ui
 import Menu from "@material-ui/core/Menu";
 import { MenuItem } from "@material-ui/core";
+
+// html2canvas for downloading images
 import html2canvas from "html2canvas";
 
 const Editor = ({ darkMode, setDarkMode }) => {
@@ -44,24 +50,28 @@ const Editor = ({ darkMode, setDarkMode }) => {
     window.addEventListener("resize", resizeCoverImage);
   });
 
+  // download image as a .png
   const downloadAsPng = () => {
     const coverImage = document.querySelector("#cover_image_download");
 
     html2canvas(coverImage).then(function (canvas) {
       const a = document.createElement("a");
-      a.href = canvas.toDataURL("image/png");
-      a.download = "code" + ".png";
+
+      a.href = canvas.toDataURL("image/png"); // convert to dataURL
+      a.download = fileName + ".png";
       a.click();
     });
   };
 
+  // download image as a .jpg
   const downloadAsJpg = () => {
     const coverImage = document.querySelector("#cover_image_download");
 
     html2canvas(coverImage).then(function (canvas) {
       const a = document.createElement("a");
-      a.href = canvas.toDataURL("image/jpeg");
-      a.download = "code" + ".jpg";
+
+      a.href = canvas.toDataURL("image/jpeg"); // convert to dataURL
+      a.download = fileName + ".jpg";
       a.click();
     });
   };
