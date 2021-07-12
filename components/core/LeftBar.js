@@ -11,6 +11,9 @@ import { IoShapesOutline } from "react-icons/io5";
 import Btn from "../utils/Btn";
 import TabWrapper from "../utils/TabWrapper";
 
+// color pickers
+import SolidColorPicker from "../utils/SolidColorPicker";
+
 const TabItem = ({ tab }) => {
   return (
     <div className="w-[85px] h-[60px] flex flex-col items-center justify-center text-[#111]">
@@ -20,9 +23,20 @@ const TabItem = ({ tab }) => {
   );
 };
 
+const BgTabItem = ({ tab }) => {
+  return (
+    <div className="p-2 flex flex-col items-center justify-center text-[#111] border border-[#ddd]">
+      <h3 className="text-sm font-medium lowercase">{tab}</h3>
+    </div>
+  );
+};
+
 const LeftBar = () => {
   // current tab
   const [value, setValue] = useState("home");
+
+  // current background tab
+  const [bgValue, setBgValue] = useState("solid");
 
   // handleChange of tabs
   const handleChange = (event, newValue) => {
@@ -48,6 +62,8 @@ const LeftBar = () => {
       icon: <FiFolder className="text-xl mb-1" />,
     },
   ];
+
+  const backgroundTabs = ["solid", "gradient", "pattern"];
 
   return (
     <div className="h-full absolute lg:relative xl:relative w-10/12 lg:w-[32.5%] xl:w-[32.5%] flex bg-[#F1F5FB] border-r border-[#564BB330] white-light-shadow">
@@ -80,10 +96,26 @@ const LeftBar = () => {
       </div>
       <div className="w-full h-full flex items-center justify-start flex-col py-3">
         <TabWrapper name="Background">
-          <h1>{value}</h1>
-        </TabWrapper>
-        <TabWrapper name="Background">
-          <h1>{value}</h1>
+          <Tabs
+            value={bgValue}
+            onChange={(event, newValue) => {
+              setBgValue(newValue);
+            }}
+            indicatorColor="primary"
+            className="!p-0 !m-0 !min-w-0 !min-h-0"
+          >
+            {backgroundTabs.map((tab, key) => (
+              <Tab
+                label={<BgTabItem tab={tab} />}
+                value={tab}
+                key={key}
+                className="!p-0 !m-0 !min-w-0 !min-h-0"
+              />
+            ))}
+          </Tabs>
+          <div className="mt-5">
+            {bgValue === "solid" && <SolidColorPicker />}
+          </div>
         </TabWrapper>
         <h1>{value}</h1>
       </div>
