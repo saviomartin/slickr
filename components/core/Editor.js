@@ -6,12 +6,14 @@ import { FiDownload, FiMoon, FiSun } from "react-icons/fi";
 // material btn
 import Btn from "../utils/Btn";
 
-// menu from material ui
+// material ui
 import Menu from "@material-ui/core/Menu";
 import { MenuItem, TextField } from "@material-ui/core";
 
 // html2canvas for downloading images
 import html2canvas from "html2canvas";
+
+// react hot toast
 import toast from "react-hot-toast";
 
 const Editor = ({ darkMode, setDarkMode }) => {
@@ -63,6 +65,7 @@ const Editor = ({ darkMode, setDarkMode }) => {
       a.click();
     });
 
+    // toasting
     toast.promise(downloadImage, {
       loading: "Saving...",
       success: `Saved ${fileName}.png`,
@@ -82,6 +85,7 @@ const Editor = ({ darkMode, setDarkMode }) => {
       a.click();
     });
 
+    // toasting
     toast.promise(downloadImage, {
       loading: "Saving...",
       success: `Saved ${fileName}.png`,
