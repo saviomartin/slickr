@@ -193,7 +193,7 @@ const Editor = ({ darkMode, setDarkMode }) => {
           >
             <MenuItem>
               <div
-                className="w-[200px] flex items-center justify-between mx-4 my-2"
+                className="w-[200px] flex items-center justify-between"
                 onClick={downloadAsPng}
               >
                 <div className="relative">
@@ -211,7 +211,7 @@ const Editor = ({ darkMode, setDarkMode }) => {
             <div className="w-[90%] h-[1px] bg-[#ccc] mx-[5%] rounded-md my-1"></div>
             <MenuItem>
               <div
-                className="w-[200px] flex items-center justify-between mx-4 my-2"
+                className="w-[200px] flex items-center justify-between"
                 onClick={downloadAsJpg}
               >
                 <div className="relative">
@@ -224,7 +224,7 @@ const Editor = ({ darkMode, setDarkMode }) => {
             <div className="w-[90%] h-[1px] bg-[#ccc] mx-[5%] rounded-md my-1"></div>
             <MenuItem>
               <div
-                className="w-[200px] flex items-center justify-between mx-4 my-2"
+                className="w-[200px] flex items-center justify-between"
                 onClick={downloadAsSvg}
               >
                 <div className="relative">
