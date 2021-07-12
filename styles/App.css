@@ -5,7 +5,9 @@
   padding: 0;
   font-family: "Epilogue", sans-serif;
 }
-
+.epilogue * {
+  font-family: "Epilogue", sans-serif !important;
+}
 *:focus {
   outline: none !important;
 }

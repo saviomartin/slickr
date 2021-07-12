@@ -8,7 +8,7 @@ import Btn from "../utils/Btn";
 
 // menu from material ui
 import Menu from "@material-ui/core/Menu";
-import { MenuItem } from "@material-ui/core";
+import { MenuItem, TextField } from "@material-ui/core";
 
 // html2canvas for downloading images
 import html2canvas from "html2canvas";
@@ -104,10 +104,12 @@ const Editor = ({ darkMode, setDarkMode }) => {
         </p>
       </div>
       <div className="w-full bg-[#EFF1FE] h-[70px] relative border-b border-[#564BB330] flex items-center justify-between px-3">
-        <input
-          type="text"
-          className="bg-white px-3 p-[7px] border border-[#564BB330] rounded-md"
+        <TextField
+          label="File Name"
+          variant="outlined"
+          size="small"
           value={fileName}
+          className="bg-white epilogue"
           onChange={(e) => setFileName(e.target.value)}
         />
         <div className="flex">
