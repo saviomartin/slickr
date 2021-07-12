@@ -93,6 +93,39 @@ const Editor = ({ darkMode, setDarkMode }) => {
     });
   };
 
+  // download image as a .svg
+  const downloadAsSvg = () => {
+    const coverImage = document.querySelector("#cover_image_download");
+
+    html2canvas(coverImage).then(function (canvas) {
+      var image = canvas.toDataURL("image/png");
+      var svgimg = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "image"
+      );
+      svgimg.setAttribute("width", "1200");
+      svgimg.setAttribute("height", "630");
+      svgimg.setAttributeNS(
+        "http://www.w3.org/1999/xlink",
+        "xlink:href",
+        image
+      );
+
+      document.getElementById("mySvg").appendChild(svgimg);
+
+      function svgDataURL(svg) {
+        var svgAsXML = new XMLSerializer().serializeToString(svg);
+        return "data:image/svg+xml," + encodeURIComponent(svgAsXML);
+      }
+
+      const a = document.createElement("a");
+
+      a.href = svgDataURL(document.getElementById("mySvg")); // convert to dataURL
+      a.download = fileName + ".svg";
+      a.click();
+    });
+  };
+
   return (
     <div className="h-full w-full lg:w-[67.5%] xl:w-[67.5%] relative bg-white flex items-center justify-center flex-col">
       <div
@@ -107,6 +140,12 @@ const Editor = ({ darkMode, setDarkMode }) => {
           aspernatur sequi?
         </p>
       </div>
+      <svg
+        id="mySvg"
+        xmlns="http://www.w3.org/2000/svg"
+        xlink="http://www.w3.org/1999/xlink"
+        className="absolute z-[-10]"
+      ></svg>
       <div className="w-full bg-[#EFF1FE] h-[70px] relative border-b border-[#564BB330] flex items-center justify-between px-3">
         <TextField
           label="File Name"
@@ -179,9 +218,23 @@ const Editor = ({ darkMode, setDarkMode }) => {
                 <FiDownload className="text-xl ml-2 text-[#564BB3]" />
               </div>
             </MenuItem>
+            <div className="w-[90%] h-[1px] bg-[#ccc] mx-[5%] rounded-md my-1"></div>
+            <MenuItem>
+              <div
+                className="w-[200px] flex items-center justify-between"
+                onClick={downloadAsSvg}
+              >
+                <div className="relative">
+                  <h3 className="font-semibold text-[#222]">SVG</h3>
+                  <p className="text-xs text-[#444]">Sharp Vector Graphics</p>
+                </div>
+                <FiDownload className="text-xl ml-2 text-[#564BB3]" />
+              </div>
+            </MenuItem>
           </Menu>
         </div>
       </div>
+
       <div className="h-full overflow-hidden w-full relative flex items-center justify-center container">
         <div className="scale-[.85]">
           <div

@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import React from "react";
-import { Template1, NoSsr } from "../components";
+import { Template1 } from "../components";
 
 const app = (props) => {
   const router = useRouter();
@@ -8,11 +8,9 @@ const app = (props) => {
   const { template } = router.query;
 
   return (
-    <NoSsr>
-      <div className="w-full h-[100vh] flex">
-        {template === "1" && <Template1 {...props} />}
-      </div>
-    </NoSsr>
+    <div className="w-full h-[100vh] flex">
+      {template === "1" && <Template1 {...props} />}
+    </div>
   );
 };
 
