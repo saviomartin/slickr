@@ -12,6 +12,7 @@ import { MenuItem } from "@material-ui/core";
 
 // html2canvas for downloading images
 import html2canvas from "html2canvas";
+import toast from "react-hot-toast";
 
 const Editor = ({ darkMode, setDarkMode }) => {
   const [anchorEl, setAnchorEl] = useState(null); // for menu
@@ -54,12 +55,18 @@ const Editor = ({ darkMode, setDarkMode }) => {
   const downloadAsPng = () => {
     const coverImage = document.querySelector("#cover_image_download");
 
-    html2canvas(coverImage).then(function (canvas) {
+    const downloadImage = html2canvas(coverImage).then(function (canvas) {
       const a = document.createElement("a");
 
       a.href = canvas.toDataURL("image/png"); // convert to dataURL
       a.download = fileName + ".png";
       a.click();
+    });
+
+    toast.promise(downloadImage, {
+      loading: "Saving...",
+      success: `Saved ${fileName}.png`,
+      error: "Error Saving File",
     });
   };
 
@@ -67,12 +74,18 @@ const Editor = ({ darkMode, setDarkMode }) => {
   const downloadAsJpg = () => {
     const coverImage = document.querySelector("#cover_image_download");
 
-    html2canvas(coverImage).then(function (canvas) {
+    const downloadImage = html2canvas(coverImage).then(function (canvas) {
       const a = document.createElement("a");
 
       a.href = canvas.toDataURL("image/jpeg"); // convert to dataURL
       a.download = fileName + ".jpg";
       a.click();
+    });
+
+    toast.promise(downloadImage, {
+      loading: "Saving...",
+      success: `Saved ${fileName}.png`,
+      error: "Error Saving File",
     });
   };
 
