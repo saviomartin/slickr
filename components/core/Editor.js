@@ -123,6 +123,9 @@ const Editor = ({ darkMode, setDarkMode }) => {
       a.href = svgDataURL(document.getElementById("mySvg")); // convert to dataURL
       a.download = fileName + ".svg";
       a.click();
+
+      // toasting
+      toast.success(`Saved ${fileName}.svg`);
     });
   };
 
@@ -174,7 +177,7 @@ const Editor = ({ darkMode, setDarkMode }) => {
           </Btn>
           <Menu
             getContentAnchorEl={null}
-            className="!mt-1 !min-w-0 !block"
+            className="!mt-1 !block"
             anchorOrigin={{
               vertical: "bottom",
               horizontal: "right",
@@ -190,7 +193,7 @@ const Editor = ({ darkMode, setDarkMode }) => {
           >
             <MenuItem>
               <div
-                className="w-[200px] flex items-center justify-between"
+                className="w-[200px] flex items-center justify-between mx-4 my-2"
                 onClick={downloadAsPng}
               >
                 <div className="relative">
@@ -208,7 +211,7 @@ const Editor = ({ darkMode, setDarkMode }) => {
             <div className="w-[90%] h-[1px] bg-[#ccc] mx-[5%] rounded-md my-1"></div>
             <MenuItem>
               <div
-                className="w-[200px] flex items-center justify-between"
+                className="w-[200px] flex items-center justify-between mx-4 my-2"
                 onClick={downloadAsJpg}
               >
                 <div className="relative">
@@ -221,7 +224,7 @@ const Editor = ({ darkMode, setDarkMode }) => {
             <div className="w-[90%] h-[1px] bg-[#ccc] mx-[5%] rounded-md my-1"></div>
             <MenuItem>
               <div
-                className="w-[200px] flex items-center justify-between"
+                className="w-[200px] flex items-center justify-between mx-4 my-2"
                 onClick={downloadAsSvg}
               >
                 <div className="relative">

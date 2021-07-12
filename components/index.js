@@ -4,6 +4,7 @@ export { default as Editor } from "./core/Editor";
 
 // utils
 export { default as Btn } from "./utils/Btn";
+export { default as TabWrapper } from "./utils/TabWrapper";
 
 // templates
 export { default as Template1 } from "./templates/Template1";

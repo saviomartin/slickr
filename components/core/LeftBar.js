@@ -9,6 +9,7 @@ import { IoShapesOutline } from "react-icons/io5";
 
 // material btn
 import Btn from "../utils/Btn";
+import TabWrapper from "../utils/TabWrapper";
 
 const TabItem = ({ tab }) => {
   return (
@@ -50,7 +51,7 @@ const LeftBar = () => {
 
   return (
     <div className="h-full absolute lg:relative xl:relative w-10/12 lg:w-[32.5%] xl:w-[32.5%] flex bg-[#F1F5FB] border-r border-[#564BB330] white-light-shadow">
-      <div className="bg-graient h-full w-[10px] bg-gradient-to-b"></div>
+      <div className="bg-gradient h-full w-[10px] bg-gradient-to-b"></div>
       <div className="h-full bg-[#fff] border-r border-[#564BB330] white-light-shadow py-3 flex flex-col items-center justify-between">
         <Tabs
           value={value}
@@ -77,7 +78,12 @@ const LeftBar = () => {
           </Btn>
         </div>
       </div>
-      {value}
+      <div className="w-full h-full flex items-center justify-start flex-col py-3">
+        <TabWrapper name="Background">
+          <h1>{value}</h1>
+        </TabWrapper>
+        <h1>{value}</h1>
+      </div>
     </div>
   );
 };
