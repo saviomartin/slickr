@@ -6,17 +6,20 @@ import { FiChevronDown } from "react-icons/fi";
 
 const TabWrapper = ({ children, name }) => {
   return (
-    <div className="w-11/12 bg-gradient p-[1px] rounded-[4px]">
+    <div className="w-11/12 bg-gradient p-[1px] rounded-[4px] my-[5px]">
       <div className="w-full bg-[#fff] rounded-[4px]">
         <Accordion>
           <AccordionSummary
             expandIcon={<FiChevronDown />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
+            style={{
+              borderBottom: "1px solid #ddd",
+            }}
           >
-            <h1 className="font-bold">{name}</h1>
+            <h1 className="font-semibold">{name}</h1>
           </AccordionSummary>
-          <AccordionDetails>{children}</AccordionDetails>
+          <AccordionDetails>
+            <div className="w-full py-1 mt-2">{children}</div>
+          </AccordionDetails>
         </Accordion>
       </div>
     </div>

@@ -82,6 +82,9 @@ const LeftBar = () => {
         <TabWrapper name="Background">
           <h1>{value}</h1>
         </TabWrapper>
+        <TabWrapper name="Background">
+          <h1>{value}</h1>
+        </TabWrapper>
         <h1>{value}</h1>
       </div>
     </div>
