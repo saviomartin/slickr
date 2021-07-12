@@ -131,15 +131,33 @@ const Editor = ({ darkMode, setDarkMode }) => {
             onClose={() => setAnchorEl(null)}
           >
             <MenuItem>
-              <div className="flex font-semibold" onClick={downloadAsPng}>
-                Download as PNG
+              <div
+                className="w-[200px] flex items-center justify-between"
+                onClick={downloadAsPng}
+              >
+                <div className="relative">
+                  <div className="flex">
+                    <h3 className="font-semibold text-[#222]">PNG</h3>
+                    <span className="ml-1 mb-1 bg-app-graient-to-l py-[3px] px-[7px] rounded-md text-white text-xs font-medium">
+                      suggested
+                    </span>
+                  </div>
+                  <p className="text-xs text-[#444]">High quality Image</p>
+                </div>
                 <FiDownload className="text-xl ml-2 text-[#564BB3]" />
               </div>
             </MenuItem>
+            <div className="w-[90%] h-[1px] bg-[#ccc] mx-[5%] rounded-md my-1"></div>
             <MenuItem>
-              <div className="flex font-semibold" onClick={downloadAsJpg}>
-                Download as JPG
-                <FiDownload className="text-xl ml-3 text-[#564BB3]" />
+              <div
+                className="w-[200px] flex items-center justify-between"
+                onClick={downloadAsJpg}
+              >
+                <div className="relative">
+                  <h3 className="font-semibold text-[#222]">JPG</h3>
+                  <p className="text-xs text-[#444]">Low quality Image</p>
+                </div>
+                <FiDownload className="text-xl ml-2 text-[#564BB3]" />
               </div>
             </MenuItem>
           </Menu>
