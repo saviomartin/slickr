@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // material vertical tabs
 import { Tab, Tabs, TextField } from "@material-ui/core";
@@ -15,6 +15,7 @@ import TabWrapper from "../utils/TabWrapper";
 import SolidColorPicker from "../utils/SolidColorPicker";
 import GradientColorPicker from "../utils/GradientColorPicker";
 import PatternPicker from "../utils/PatternPicker";
+import IconsPicker from "../utils/IconsPicker";
 
 const TabItem = ({ tab }) => {
   return (
@@ -71,6 +72,14 @@ const LeftBar = ({ data, setData }) => {
 
   const backgroundTabs = ["solid", "gradient", "pattern"];
 
+  useEffect(() => {
+    setData({
+      ...data,
+      title: title,
+      tagline: tagline,
+    });
+  }, [title, tagline]);
+
   return (
     <div className="h-full absolute lg:relative xl:relative w-10/12 lg:w-[32.5%] xl:w-[32.5%] flex bg-[#F1F5FB] border-r border-[#564BB330] white-light-shadow">
       <div className="bg-gradient h-full w-[10px] bg-gradient-to-b"></div>
@@ -122,6 +131,9 @@ const LeftBar = ({ data, setData }) => {
             className="bg-white epilogue w-full"
             onChange={(e) => setTagline(e.target.value)}
           />
+        </TabWrapper>
+        <TabWrapper name="Icon">
+          <IconsPicker />
         </TabWrapper>
         <TabWrapper name="Background">
           <Tabs

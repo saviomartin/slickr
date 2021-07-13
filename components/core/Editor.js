@@ -143,6 +143,9 @@ const Editor = ({ darkMode, setDarkMode, data, setData }) => {
       coverImagePreview.style.backgroundColor = data.background.color1;
       coverImagePreview.style.backgroundImage = `url("${data.background.pattern}")`;
       coverImagePreview.style.backgroundSize = "auto";
+      coverImageDownload.style.backgroundColor = data.background.color1;
+      coverImageDownload.style.backgroundImage = `url("${data.background.pattern}")`;
+      coverImageDownload.style.backgroundSize = "auto";
     }
   }, [data]);
 
@@ -261,13 +264,7 @@ const Editor = ({ darkMode, setDarkMode, data, setData }) => {
             id="cover_image_preview"
             className="relative cover_image bg-blue-700"
           >
-            <p className="text-5xl">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero nemo
-              laborum consectetur saepe, qui nisi possimus maiores id, est non
-              numquam! Id facilis vero quasi voluptatem ad blanditiis ullam
-              error architecto reprehenderit nisi? Ratione omnis quia qui.
-              Laborum, aspernatur sequi?
-            </p>
+            <p className="text-5xl">{data.title}</p>
           </div>
         </div>
       </div>

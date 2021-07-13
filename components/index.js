@@ -8,6 +8,7 @@ export { default as TabWrapper } from "./utils/TabWrapper";
 export { default as SolidColorPicker } from "./utils/SolidColorPicker";
 export { default as GradientColorPicker } from "./utils/GradientColorPicker";
 export { default as PatternPicker } from "./utils/PatternPicker";
+export { default as IconsPicker } from "./utils/IconsPicker";
 
 // templates
 export { default as Template1 } from "./templates/Template1";
