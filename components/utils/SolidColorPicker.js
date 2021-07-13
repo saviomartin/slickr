@@ -5,7 +5,7 @@ import Btn from "./Btn";
 const SolidColorPicker = ({ data, setData }) => {
   const [displayColorPicker, setDisplayColorPicker] = useState(false);
   const [color, setColor] = useState({
-    color: data.background.color,
+    color: data.background.color ? data.background.color : "#00ff00",
     opa: 1,
   });
 

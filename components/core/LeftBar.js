@@ -14,6 +14,7 @@ import TabWrapper from "../utils/TabWrapper";
 // color pickers
 import SolidColorPicker from "../utils/SolidColorPicker";
 import GradientColorPicker from "../utils/GradientColorPicker";
+import PatternPicker from "../utils/PatternPicker";
 
 const TabItem = ({ tab }) => {
   return (
@@ -120,6 +121,9 @@ const LeftBar = ({ data, setData }) => {
             )}
             {bgValue === "gradient" && (
               <GradientColorPicker data={data} setData={setData} />
+            )}
+            {bgValue === "pattern" && (
+              <PatternPicker data={data} setData={setData} />
             )}
           </div>
         </TabWrapper>

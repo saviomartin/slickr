@@ -137,8 +137,8 @@ const Editor = ({ darkMode, setDarkMode, data, setData }) => {
       coverImagePreview.style.background = data.background.color;
       coverImageDownload.style.background = data.background.color;
     } else if (data.background.type === "gradient") {
-      coverImagePreview.style.background = `linear-gradient(to left, ${data.background.color1}, ${data.background.color2})`;
-      coverImageDownload.style.background = `linear-gradient(to left, ${data.background.color1}, ${data.background.color2})`;
+      coverImagePreview.style.background = `linear-gradient(${data.background.direction}deg, ${data.background.color1}, ${data.background.color2})`;
+      coverImageDownload.style.background = `linear-gradient(${data.background.direction}deg, ${data.background.color1}, ${data.background.color2})`;
     }
   }, [data]);
 

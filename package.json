@@ -8,16 +8,21 @@
     "start": "next start"
   },
   "dependencies": {
+    "@fseehawer/react-circular-slider": "^2.3.5",
     "@material-ui/core": "^4.12.0",
+    "dom-parser": "^0.1.6",
     "dom-to-image": "^2.6.0",
     "html2canvas": "^1.0.0",
     "jquery": "^3.6.0",
     "next": "latest",
     "react": "^17.0.2",
+    "react-circle-slider": "^1.6.2",
     "react-color": "^2.19.3",
     "react-dom": "^17.0.2",
     "react-hot-toast": "^2.0.0",
-    "react-icons": "^4.2.0"
+    "react-icons": "^4.2.0",
+    "react-linear-gradient-picker": "^1.1.4",
+    "react-select-material-ui": "^7.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.6",

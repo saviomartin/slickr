@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SketchPicker } from "react-color";
 import Btn from "./Btn";
+import CircularSlider from "@fseehawer/react-circular-slider";
 
 const GradientColorPicker = ({ data, setData }) => {
   const [displayColorPickers, setDisplayColorPickers] = useState({
@@ -8,9 +9,10 @@ const GradientColorPicker = ({ data, setData }) => {
     colorPicker2: false,
   });
   const [colors, setColors] = useState({
-    color1: data.background.color1,
-    color2: data.background.color2,
+    color1: data.background.color1 ? data.background.color1 : "#BA0352",
+    color2: data.background.color2 ? data.background.color2 : "#5E00F6",
   });
+  const [direction, setDirection] = useState(0);
 
   const handleColorChange = (color, colorNo) => {
     if (colorNo === "color1") {
@@ -127,6 +129,25 @@ const GradientColorPicker = ({ data, setData }) => {
           />
         </div>
       )}
+      <h3 className="text-sm my-3">Direction:</h3>
+      <CircularSlider
+        width={90}
+        valueFontSize="20px"
+        labelFontSize="9px"
+        verticalOffset="0em"
+        onChange={(angle) => {
+          setDirection(angle);
+          setData({
+            ...data,
+            background: {
+              type: "gradient",
+              color1: colors.color1,
+              color2: colors.color2,
+              direction: direction,
+            },
+          });
+        }}
+      />
     </div>
   );
 };
