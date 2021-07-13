@@ -39,9 +39,10 @@ const PatternPicker = ({ data, setData }) => {
     setData({
       ...data,
       background: {
-        type: "gradient",
+        type: "pattern",
         color1: colors.color1,
         color2: colors.color2,
+        pattern: pattern.pattern,
       },
     });
   };
@@ -103,11 +104,15 @@ const PatternPicker = ({ data, setData }) => {
     },
     {
       name: "Leaves",
-      pattern: `data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='40'%3E%3Cpath fill='%23fff' fill-opacity='.76' d='M0 40a19.96 19.96 0 015.9-14.11 20.17 20.17 0 0119.44-5.2A20 20 0 0120.2 40H0zM65.32.75A20.02 20.02 0 0140.8 25.26 20.02 20.02 0 0165.32.76zM.07 0h20.1l-.08.07A20.02 20.02 0 01.75 5.25 20.08 20.08 0 01.07 0zm1.94 40h2.53l4.26-4.24v-9.78A17.96 17.96 0 002 40zm5.38 0h9.8a17.98 17.98 0 006.67-16.42L7.4 40zm3.43-15.42v9.17l11.62-11.59c-3.97-.5-8.08.3-11.62 2.42zm32.86-.78A18 18 0 0063.85 3.63L43.68 23.8zm7.2-19.17v9.15L62.43 2.22c-3.96-.5-8.05.3-11.57 2.4zm-3.49 2.72c-4.1 4.1-5.81 9.69-5.13 15.03l6.61-6.6V6.02c-.51.41-1 .85-1.48 1.33zM17.18 0H7.42L3.64 3.78A18 18 0 0017.18 0zM2.08 0c-.01.8.04 1.58.14 2.37L4.59 0H2.07z'/%3E%3C/svg%3E`,
+      pattern: `data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='40'%3E%3Cpath fill='%23${colors.color2.slice(
+        1
+      )}' fill-opacity='1' d='M0 40a19.96 19.96 0 015.9-14.11 20.17 20.17 0 0119.44-5.2A20 20 0 0120.2 40H0zM65.32.75A20.02 20.02 0 0140.8 25.26 20.02 20.02 0 0165.32.76zM.07 0h20.1l-.08.07A20.02 20.02 0 01.75 5.25 20.08 20.08 0 01.07 0zm1.94 40h2.53l4.26-4.24v-9.78A17.96 17.96 0 002 40zm5.38 0h9.8a17.98 17.98 0 006.67-16.42L7.4 40zm3.43-15.42v9.17l11.62-11.59c-3.97-.5-8.08.3-11.62 2.42zm32.86-.78A18 18 0 0063.85 3.63L43.68 23.8zm7.2-19.17v9.15L62.43 2.22c-3.96-.5-8.05.3-11.57 2.4zm-3.49 2.72c-4.1 4.1-5.81 9.69-5.13 15.03l6.61-6.6V6.02c-.51.41-1 .85-1.48 1.33zM17.18 0H7.42L3.64 3.78A18 18 0 0017.18 0zM2.08 0c-.01.8.04 1.58.14 2.37L4.59 0H2.07z'/%3E%3C/svg%3E`,
     },
     {
       name: "Temples",
-      pattern: `data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='152' height='152'%3E%3Cpath d='M152 150v2H0v-2h28v-8H8v-20H0v-2h8V80h42v20h20v42H30v8h90v-8H80v-42h20V80h42v40h8V30h-8v40h-42V50H80V8h40V0h2v8h20v20h8V0h2v150zm-2 0v-28h-8v20h-20v8h28zM82 30v18h18V30H82zm20 18h20v20h18V30h-20V10H82v18h20v20zm0 2v18h18V50h-18zm20-22h18V10h-18v18zm-54 92v-18H50v18h18zm-20-18H28V82H10v38h20v20h38v-18H48v-20zm0-2V82H30v18h18zm-20 22H10v18h18v-18zm54 0v18h38v-20h20V82h-18v20h-20v20H82zm18-20H82v18h18v-18zm2-2h18V82h-18v18zm20 40v-18h18v18h-18zM30 0h-2v8H8v20H0v2h8v40h42V50h20V8H30V0zm20 48h18V30H50v18zm18-20H48v20H28v20H10V30h20V10h38v18zM30 50h18v18H30V50zm-2-40H10v18h18V10z' fill='%23fff' fill-opacity='.76' fill-rule='evenodd'/%3E%3C/svg%3E`,
+      pattern: `data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='152' height='152'%3E%3Cpath d='M152 150v2H0v-2h28v-8H8v-20H0v-2h8V80h42v20h20v42H30v8h90v-8H80v-42h20V80h42v40h8V30h-8v40h-42V50H80V8h40V0h2v8h20v20h8V0h2v150zm-2 0v-28h-8v20h-20v8h28zM82 30v18h18V30H82zm20 18h20v20h18V30h-20V10H82v18h20v20zm0 2v18h18V50h-18zm20-22h18V10h-18v18zm-54 92v-18H50v18h18zm-20-18H28V82H10v38h20v20h38v-18H48v-20zm0-2V82H30v18h18zm-20 22H10v18h18v-18zm54 0v18h38v-20h20V82h-18v20h-20v20H82zm18-20H82v18h18v-18zm2-2h18V82h-18v18zm20 40v-18h18v18h-18zM30 0h-2v8H8v20H0v2h8v40h42V50h20V8H30V0zm20 48h18V30H50v18zm18-20H48v20H28v20H10V30h20V10h38v18zM30 50h18v18H30V50zm-2-40H10v18h18V10z' fill='%23${colors.color2.slice(
+        1
+      )}' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E`,
     },
   ];
 
@@ -235,6 +240,15 @@ const PatternPicker = ({ data, setData }) => {
                   pattern: pattern.pattern,
                 });
                 setAnchorEl(null);
+                setData({
+                  ...data,
+                  background: {
+                    type: "pattern",
+                    color1: colors.color1,
+                    color2: colors.color2,
+                    pattern: pattern.pattern,
+                  },
+                });
               }}
             >
               <div

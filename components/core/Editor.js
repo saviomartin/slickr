@@ -139,6 +139,10 @@ const Editor = ({ darkMode, setDarkMode, data, setData }) => {
     } else if (data.background.type === "gradient") {
       coverImagePreview.style.background = `linear-gradient(${data.background.direction}deg, ${data.background.color1}, ${data.background.color2})`;
       coverImageDownload.style.background = `linear-gradient(${data.background.direction}deg, ${data.background.color1}, ${data.background.color2})`;
+    } else if (data.background.type === "pattern") {
+      coverImagePreview.style.backgroundColor = data.background.color1;
+      coverImagePreview.style.backgroundImage = `url("${data.background.pattern}")`;
+      coverImagePreview.style.backgroundSize = "auto";
     }
   }, [data]);
 

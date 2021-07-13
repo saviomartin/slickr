@@ -32,6 +32,7 @@ const GradientColorPicker = ({ data, setData }) => {
         type: "gradient",
         color1: colors.color1,
         color2: colors.color2,
+        direction: direction,
       },
     });
   };
