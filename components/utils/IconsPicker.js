@@ -1,11 +1,9 @@
 import { MenuItem, Select } from "@material-ui/core";
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const IconsPicker = () => {
+const IconsPicker = ({ data, setData }) => {
   const [icons, setIcons] = useState([]);
-  const [icon, setIcon] = useState("react");
+  const [icon, setIcon] = useState(data.icon ? data.icon : "react");
 
   useEffect(() => {
     fetch(
@@ -22,10 +20,15 @@ const IconsPicker = () => {
         value={icon}
         onChange={(e) => {
           setIcon(e.target.value);
+          setData({
+            ...data,
+            icon: e.target.value,
+          });
         }}
+        className="w-full epilogue"
       >
         {icons.map((icon, key) => (
-          <MenuItem value={icon.name} key={key}>
+          <MenuItem value={icon.name} key={key} className="epilogue">
             {icon.name}
           </MenuItem>
         ))}

@@ -133,7 +133,7 @@ const LeftBar = ({ data, setData }) => {
           />
         </TabWrapper>
         <TabWrapper name="Icon">
-          <IconsPicker />
+          <IconsPicker data={data} setData={setData} />
         </TabWrapper>
         <TabWrapper name="Background">
           <Tabs

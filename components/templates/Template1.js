@@ -9,6 +9,7 @@ const Template1 = (props) => {
       type: "solid",
       color: "#F5F5F5",
     },
+    icon: "react",
   });
   return (
     <div className="w-full h-[100vh] flex overflow-hidden">
