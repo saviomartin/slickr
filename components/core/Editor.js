@@ -16,7 +16,7 @@ import html2canvas from "html2canvas";
 // react hot toast
 import toast from "react-hot-toast";
 
-const Editor = ({ darkMode, setDarkMode }) => {
+const Editor = ({ darkMode, setDarkMode, data, setData }) => {
   const [anchorEl, setAnchorEl] = useState(null); // for menu
   const [fileName, setFileName] = useState("Untitled Design");
 
@@ -128,6 +128,13 @@ const Editor = ({ darkMode, setDarkMode }) => {
       toast.success(`Saved ${fileName}.svg`);
     });
   };
+
+  useEffect(() => {
+    const coverImagePreview = document.getElementById("cover_image_preview");
+    const coverImageDownload = document.getElementById("cover_image_download");
+    coverImagePreview.style.background = data.background.color;
+    coverImageDownload.style.background = data.background.color;
+  }, [data]);
 
   return (
     <div className="h-full w-full lg:w-[67.5%] xl:w-[67.5%] relative bg-white flex items-center justify-center flex-col">

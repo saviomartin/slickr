@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { SketchPicker } from "react-color";
 import Btn from "./Btn";
 
-const SolidColorPicker = () => {
+const SolidColorPicker = ({ data, setData }) => {
   const [displayColorPicker, setDisplayColorPicker] = useState(false);
   const [color, setColor] = useState({
-    color: "#00ff00",
+    color: data.background.color,
     opa: 1,
   });
 
@@ -13,6 +13,13 @@ const SolidColorPicker = () => {
     setColor({
       color: color.hex,
       opa: color.rgb.a,
+    });
+    setData({
+      ...data,
+      background: {
+        type: "solid",
+        color: color.hex,
+      },
     });
   };
 

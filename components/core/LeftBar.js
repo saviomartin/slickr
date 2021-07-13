@@ -31,12 +31,12 @@ const BgTabItem = ({ tab }) => {
   );
 };
 
-const LeftBar = () => {
+const LeftBar = ({ data, setData }) => {
   // current tab
   const [value, setValue] = useState("home");
 
   // current background tab
-  const [bgValue, setBgValue] = useState("solid");
+  const [bgValue, setBgValue] = useState(data.background.type);
 
   // handleChange of tabs
   const handleChange = (event, newValue) => {
@@ -114,7 +114,9 @@ const LeftBar = () => {
             ))}
           </Tabs>
           <div className="mt-5">
-            {bgValue === "solid" && <SolidColorPicker />}
+            {bgValue === "solid" && (
+              <SolidColorPicker data={data} setData={setData} />
+            )}
           </div>
         </TabWrapper>
         <h1>{value}</h1>
