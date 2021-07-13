@@ -109,7 +109,7 @@ const LeftBar = ({ data, setData }) => {
           </Btn>
         </div>
       </div>
-      <div className="w-full h-full flex items-center justify-start flex-col py-3">
+      <div className="w-full h-full flex items-center justify-start flex-col py-3 overflow-y-scroll">
         <TabWrapper name="Title">
           <p className="text-xs text-[#666] mb-3">Enter an eye catchy title</p>
           <TextField

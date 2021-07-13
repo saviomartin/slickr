@@ -16,6 +16,7 @@ const IconsPicker = ({ data, setData }) => {
   }, []);
   return (
     <div>
+      <p className="text-xs text-[#666] mb-3">Choose your Icon:</p>
       <Select
         value={icon}
         onChange={(e) => {
@@ -26,6 +27,8 @@ const IconsPicker = ({ data, setData }) => {
           });
         }}
         className="w-full epilogue"
+        variant="outlined"
+        size="small"
       >
         {icons.map((icon, key) => (
           <MenuItem value={icon.name} key={key} className="epilogue">
