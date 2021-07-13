@@ -13,6 +13,7 @@ import TabWrapper from "../utils/TabWrapper";
 
 // color pickers
 import SolidColorPicker from "../utils/SolidColorPicker";
+import GradientColorPicker from "../utils/GradientColorPicker";
 
 const TabItem = ({ tab }) => {
   return (
@@ -116,6 +117,9 @@ const LeftBar = ({ data, setData }) => {
           <div className="mt-5">
             {bgValue === "solid" && (
               <SolidColorPicker data={data} setData={setData} />
+            )}
+            {bgValue === "gradient" && (
+              <GradientColorPicker data={data} setData={setData} />
             )}
           </div>
         </TabWrapper>

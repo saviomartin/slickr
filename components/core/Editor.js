@@ -132,8 +132,14 @@ const Editor = ({ darkMode, setDarkMode, data, setData }) => {
   useEffect(() => {
     const coverImagePreview = document.getElementById("cover_image_preview");
     const coverImageDownload = document.getElementById("cover_image_download");
-    coverImagePreview.style.background = data.background.color;
-    coverImageDownload.style.background = data.background.color;
+
+    if (data.background.type === "solid") {
+      coverImagePreview.style.background = data.background.color;
+      coverImageDownload.style.background = data.background.color;
+    } else if (data.background.type === "gradient") {
+      coverImagePreview.style.background = `linear-gradient(to left, ${data.background.color1}, ${data.background.color2})`;
+      coverImageDownload.style.background = `linear-gradient(to left, ${data.background.color1}, ${data.background.color2})`;
+    }
   }, [data]);
 
   return (
