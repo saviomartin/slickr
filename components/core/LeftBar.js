@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 // material vertical tabs
-import { Tab, Tabs } from "@material-ui/core";
+import { Tab, Tabs, TextField } from "@material-ui/core";
 
 // icons
 import { FiEdit, FiFolder, FiTwitter, FiUploadCloud } from "react-icons/fi";
@@ -34,6 +34,10 @@ const BgTabItem = ({ tab }) => {
 };
 
 const LeftBar = ({ data, setData }) => {
+  // title
+  const [title, setTitle] = useState(data.title);
+  const [tagline, setTagline] = useState(data.tagline);
+
   // current tab
   const [value, setValue] = useState("home");
 
@@ -97,6 +101,28 @@ const LeftBar = ({ data, setData }) => {
         </div>
       </div>
       <div className="w-full h-full flex items-center justify-start flex-col py-3">
+        <TabWrapper name="Title">
+          <p className="text-xs text-[#666] mb-3">Enter an eye catchy title</p>
+          <TextField
+            label="Title"
+            variant="outlined"
+            size="small"
+            value={title}
+            className="bg-white epilogue w-full"
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </TabWrapper>
+        <TabWrapper name="Tagline">
+          <p className="text-xs text-[#666] mb-3">Enter your Tagline</p>
+          <TextField
+            label="Tagline"
+            variant="outlined"
+            size="small"
+            value={tagline}
+            className="bg-white epilogue w-full"
+            onChange={(e) => setTagline(e.target.value)}
+          />
+        </TabWrapper>
         <TabWrapper name="Background">
           <Tabs
             value={bgValue}
