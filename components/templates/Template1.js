@@ -3,8 +3,20 @@ import { LeftBar, Editor } from "..";
 
 const Template1 = (props) => {
   const [data, setData] = useState({
-    title: "My Awesome Post Title Goes Here",
-    tagline: "written by @saviomartin",
+    title: {
+      fontSize: 72,
+      fontFamily: "Poppins",
+      color: "#000",
+      fontWeight: 900,
+      text: "My Awesome Post Title Goes Here",
+    },
+    tagline: {
+      fontSize: 72,
+      fontFamily: "Poppins",
+      color: "#000",
+      fontWeight: 900,
+      text: "written by @saviomartin",
+    },
     background: {
       type: "solid",
       color: "#F5F5F5",

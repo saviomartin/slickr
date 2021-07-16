@@ -264,7 +264,7 @@ const Editor = ({ darkMode, setDarkMode, data, setData }) => {
             id="cover_image_preview"
             className="relative cover_image bg-blue-700"
           >
-            <p className="text-5xl">{data.icon}</p>
+            <p className="text-5xl">{data.tagline.color}</p>
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 // core components
 export { default as LeftBar } from "./core/LeftBar";
 export { default as Editor } from "./core/Editor";
+export { default as EditArea } from "./core/EditArea";
 
 // utils
 export { default as Btn } from "./utils/Btn";
