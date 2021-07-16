@@ -23,6 +23,16 @@ const TextTab = ({ title, setTitle, name }) => {
     "800",
     "900",
   ];
+  const families = [
+    "Poppins",
+    "Inter",
+    "Roboto",
+    "Open-Sans",
+    "Montserrat",
+    "Raleway",
+    "Playfair-Display",
+    "Fira-Sans",
+  ];
 
   const handleColorChange = (color) => {
     setColor({
@@ -70,6 +80,25 @@ const TextTab = ({ title, setTitle, name }) => {
         className="bg-white epilogue w-full"
         onChange={(e) => setTitle({ ...title, fontSize: e.target.value })}
       />
+      <p className="text-xs text-[#666] my-3">Font Family</p>
+      <Select
+        value={title.fontFamily}
+        onChange={(e) => {
+          setTitle({
+            ...title,
+            fontFamily: e.target.value,
+          });
+        }}
+        className={`w-full ${title.fontFamily}`}
+        variant="outlined"
+        size="small"
+      >
+        {families.map((value, key) => (
+          <MenuItem value={value} key={key}>
+            <span className={value}>{value}</span>
+          </MenuItem>
+        ))}
+      </Select>
       <p className="text-xs text-[#666] my-3">Font Weight</p>
       <Select
         value={title.fontWeight}
@@ -89,6 +118,7 @@ const TextTab = ({ title, setTitle, name }) => {
           </MenuItem>
         ))}
       </Select>
+
       <p className="text-xs text-[#666] my-3">Color</p>
       <Btn>
         <div
