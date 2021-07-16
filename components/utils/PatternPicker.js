@@ -117,8 +117,8 @@ const PatternPicker = ({ data, setData }) => {
   ];
 
   return (
-    <div>
-      <h3 className="text-sm mb-2">Choose Background Colors:</h3>
+    <div className="">
+      <h3 className="text-[#666] text-sm mb-2">Choose Background Colors:</h3>
       <Btn>
         <div
           className="p-2 w-auto rounded-md border border-[#ddd] flex items-center justify-start"
@@ -197,7 +197,7 @@ const PatternPicker = ({ data, setData }) => {
           />
         </div>
       )}
-      <h3 className="mt-4 mb-2 text-sm">Choose Pattern:</h3>
+      <h3 className="mt-4 mb-2 text-sm text-[#666]">Choose Pattern:</h3>
       <Btn onClick={(e) => setAnchorEl(e.currentTarget)}>
         <div className="p-2 w-auto rounded-md border border-[#ddd] flex items-center justify-start">
           <div

@@ -36,7 +36,7 @@ const SolidColorPicker = ({ data, setData }) => {
   };
 
   return (
-    <div className="text-[#222]">
+    <div className="text-[#666]">
       <h3 className="text-sm mb-2">Choose Background Color:</h3>
       <Btn>
         <div
