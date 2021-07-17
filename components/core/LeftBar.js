@@ -13,6 +13,7 @@ import Btn from "../utils/Btn";
 
 import EditArea from "./EditArea";
 import ImageArea from "./ImageArea";
+import UploadArea from "./UploadArea";
 
 const TabItem = ({ tab }) => {
   return (
@@ -89,6 +90,7 @@ const LeftBar = ({ data, setData }) => {
       <div className="w-full h-full flex items-center justify-start flex-col py-3 overflow-y-scroll">
         {value === "home" && <EditArea data={data} setData={setData} />}
         {value === "images" && <ImageArea data={data} setData={setData} />}
+        {value === "uploads" && <UploadArea data={data} setData={setData} />}
       </div>
     </div>
   );

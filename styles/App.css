@@ -96,3 +96,35 @@
   border-radius: 50%;
   cursor: pointer;
 }
+.custom-file-input {
+  color: transparent;
+  width: 100%;
+}
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom-file-input::before {
+  content: "Upload Image 🚀";
+  color: #222;
+  width: 100%;
+  display: inline-block;
+  border-radius: 4px;
+  padding: 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  font-size: 16px;
+  text-align: center;
+  background: #fff;
+  cursor: pointer;
+  transition: 0.5s;
+  font-weight: 600;
+}
+.custom-file-input:hover::before {
+  border-color: black;
+}
+.dragover::before {
+  content: "Drop, its like Hot 🔥";
+  background: transparent;
+  color: #fff;
+}
