@@ -5,12 +5,14 @@ import { Tab, Tabs } from "@material-ui/core";
 
 // icons
 import { FiEdit, FiFolder, FiTwitter, FiUploadCloud } from "react-icons/fi";
+import { BiImageAdd } from "react-icons/bi";
 import { IoShapesOutline } from "react-icons/io5";
 
 // material btn
 import Btn from "../utils/Btn";
 
 import EditArea from "./EditArea";
+import ImageArea from "./ImageArea";
 
 const TabItem = ({ tab }) => {
   return (
@@ -43,6 +45,11 @@ const LeftBar = ({ data, setData }) => {
     {
       name: "uploads",
       icon: <FiUploadCloud className="text-xl mb-1" />,
+    },
+
+    {
+      name: "images",
+      icon: <BiImageAdd className="text-2xl mb-[3px]" />,
     },
     {
       name: "saved",
@@ -80,8 +87,8 @@ const LeftBar = ({ data, setData }) => {
         </div>
       </div>
       <div className="w-full h-full flex items-center justify-start flex-col py-3 overflow-y-scroll">
-        <EditArea data={data} setData={setData} />
-        <h1>{value}</h1>
+        {value === "home" && <EditArea data={data} setData={setData} />}
+        {value === "images" && <ImageArea data={data} setData={setData} />}
       </div>
     </div>
   );

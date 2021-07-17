@@ -10,6 +10,7 @@
   "dependencies": {
     "@fseehawer/react-circular-slider": "^2.3.5",
     "@material-ui/core": "^4.12.0",
+    "axios": "^0.21.1",
     "dom-parser": "^0.1.6",
     "dom-to-image": "^2.6.0",
     "html2canvas": "^1.0.0",
@@ -21,6 +22,9 @@
     "react-dom": "^17.0.2",
     "react-hot-toast": "^2.0.0",
     "react-icons": "^4.2.0",
+    "react-infinite-scroll": "^0.1.5",
+    "react-infinite-scroll-component": "^6.1.0",
+    "react-infinite-scroll-hook": "^4.0.1",
     "react-linear-gradient-picker": "^1.1.4",
     "react-select-material-ui": "^7.0.0"
   },
