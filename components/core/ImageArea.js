@@ -28,7 +28,7 @@ const InfiniteScroll = () => {
   }, []);
 
   useEffect(() => {
-    const client_id = "4mB0CC1xdwTfTQGjF1v1uO9vS2Z8ubzBPd4X0B86IEU";
+    const client_id = process.env.NEXT_PUBLIC_UNSPLASH_CLIENT_ID;
     const fetchUrl = `https://api.unsplash.com/search/photos?client_id=${client_id}&query=${searchValue}&page=${page}&per_page=12`;
 
     axios

@@ -1,9 +1,22 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
+import { useEffect } from "react";
 import toast from "react-hot-toast";
-import { FiUpload } from "react-icons/fi";
 import Btn from "../utils/Btn";
 
 const UploadArea = () => {
+  const [images, setImages] = useState([]);
+
+  const fetchImages = () => {
+    if (window.localStorage.getItem("images")) {
+      setImages(JSON.parse(window.localStorage.getItem("images")));
+    }
+  };
+
+  useEffect(() => {
+    fetchImages();
+  }, []);
+
   const onDragEnter = (e) => {
     document.getElementById("fileInput").classList.add("dragover");
   };
@@ -15,39 +28,51 @@ const UploadArea = () => {
     let reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
-      const fileName = file.name;
-      uploadToLocalStorage(reader.result, fileName);
+      const formData = new FormData();
+      formData.append(
+        "image",
+        reader.result.slice(file.type === "image/png" ? 22 : 23)
+      );
+      formData.append("name", file.name);
+      formData.append("key", process.env.NEXT_PUBLIC_IMGBB_STORAGE_KEY);
+
+      const upload = axios
+        .post("https://api.imgbb.com/1/upload", formData)
+        .then((data) => {
+          if (window.localStorage.getItem("images")) {
+            const images = JSON.parse(window.localStorage.getItem("images"));
+            window.localStorage.setItem(
+              "images",
+              JSON.stringify([
+                ...images,
+                {
+                  name: file.name,
+                  data: data.data.data.url,
+                },
+              ])
+            );
+          } else {
+            window.localStorage.setItem(
+              "images",
+              JSON.stringify([
+                {
+                  name: file.name,
+                  data: data.data.data.url,
+                },
+              ])
+            );
+          }
+
+          fetchImages();
+        });
+
+      toast.promise(upload, {
+        loading: "Uploading...",
+        success: `Uploaded ${file.name}.png`,
+        error: "Error Uploading File",
+      });
     };
   };
-
-  const uploadToLocalStorage = (file, fileName) => {
-    if (localStorage.getItem("files")) {
-      const files = JSON.parse(localStorage.getItem("files"));
-      localStorage.setItem(
-        "files",
-        JSON.stringify([
-          ...files,
-          {
-            name: fileName,
-            data: file,
-          },
-        ])
-      );
-    } else {
-      localStorage.setItem(
-        "files",
-        JSON.stringify([
-          {
-            name: fileName,
-            data: file,
-          },
-        ])
-      );
-    }
-
-    toast.success("Successfully Uploaded File");
-  };
-
   const uploadImage = (e) => {
     e.preventDefault();
     const file = e.target.files[0];
@@ -61,6 +86,7 @@ const UploadArea = () => {
       toast.error("File must be png or jpg");
     }
   };
+
   return (
     <div className="w-full h-full p-3">
       <Btn className="!w-full">
@@ -76,6 +102,18 @@ const UploadArea = () => {
           />
         </div>
       </Btn>
+      <div className="mt-2 w-full">
+        {images.map((data, key) => (
+          <Btn className="bg-white !m-1" key={key}>
+            <img
+              src={data.data}
+              className="image"
+              alt={data.name}
+              className="max-h-[145px] max-w-[145px] rounded-[3px]"
+            />
+          </Btn>
+        ))}
+      </div>
     </div>
   );
 };
