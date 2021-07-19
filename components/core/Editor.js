@@ -17,7 +17,7 @@ import html2canvas from "html2canvas";
 // react hot toast
 import toast from "react-hot-toast";
 
-const Editor = ({ darkMode, setDarkMode, data, setData }) => {
+const Editor = ({ darkMode, setDarkMode, data, setData, children }) => {
   const [anchorEl, setAnchorEl] = useState(null); // for menu
   const [fileName, setFileName] = useState("Untitled Design");
 
@@ -61,7 +61,9 @@ const Editor = ({ darkMode, setDarkMode, data, setData }) => {
       "cover_image_preview"
     ).innerHTML;
 
-    const downloadImage = html2canvas(coverImage).then(function (canvas) {
+    const downloadImage = html2canvas(coverImage, {
+      useCORS: true,
+    }).then(function (canvas) {
       const a = document.createElement("a");
 
       a.href = canvas.toDataURL("image/png"); // convert to dataURL
@@ -107,7 +109,9 @@ const Editor = ({ darkMode, setDarkMode, data, setData }) => {
       "cover_image_preview"
     ).innerHTML;
 
-    html2canvas(coverImage).then(function (canvas) {
+    html2canvas(coverImage, {
+      useCORS: true,
+    }).then(function (canvas) {
       var image = canvas.toDataURL("image/png");
       var svgimg = document.createElementNS(
         "http://www.w3.org/2000/svg",
@@ -266,9 +270,9 @@ const Editor = ({ darkMode, setDarkMode, data, setData }) => {
             id="cover_image_preview"
             className="relative cover_image bg-blue-700 overflow-hidden select-none"
           >
-            <Rnd>
-              <h1 className="text-5xl">hihi</h1>
-            </Rnd>
+            {children.map((child, key) => (
+              <Rnd key={key}>{child.component}</Rnd>
+            ))}
           </div>
         </div>
       </div>

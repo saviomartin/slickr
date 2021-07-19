@@ -24,7 +24,7 @@ const TabItem = ({ tab }) => {
   );
 };
 
-const LeftBar = ({ data, setData }) => {
+const LeftBar = ({ data, setData, children, setChildren }) => {
   // current tab
   const [value, setValue] = useState("home");
 
@@ -89,8 +89,22 @@ const LeftBar = ({ data, setData }) => {
       </div>
       <div className="w-full h-full flex items-center justify-start flex-col py-3 overflow-y-scroll">
         {value === "home" && <EditArea data={data} setData={setData} />}
-        {value === "images" && <ImageArea data={data} setData={setData} />}
-        {value === "uploads" && <UploadArea data={data} setData={setData} />}
+        {value === "images" && (
+          <ImageArea
+            data={data}
+            setData={setData}
+            children={children}
+            setChildren={setChildren}
+          />
+        )}
+        {value === "uploads" && (
+          <UploadArea
+            data={data}
+            setData={setData}
+            children={children}
+            setChildren={setChildren}
+          />
+        )}
       </div>
     </div>
   );

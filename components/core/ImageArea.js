@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { useEffect, useState, useRef } from "react";
 import { Btn } from "..";
 
-const InfiniteScroll = () => {
+const InfiniteScroll = ({ children, setChildren }) => {
   const [data, setData] = useState([]);
   const [query, setQuery] = useState("code");
   const [searchValue, setSearchValue] = useState("code");
@@ -60,10 +60,13 @@ const InfiniteScroll = () => {
     }
   };
 
-  const addImage = () => {
-    document
-      .getElementById("cover_image_preview")
-      .append(JSON.parse(<h1>hi</h1>));
+  const addImage = (src) => {
+    setChildren([
+      ...children,
+      {
+        component: <img src={src} style={{ height: "100%", width: "100%" }} />,
+      },
+    ]);
   };
 
   return (
@@ -80,7 +83,11 @@ const InfiniteScroll = () => {
       />
       <div className="flex items-center justify-center flex-wrap w-full h-auto mt-2">
         {data.map((data, key) => (
-          <Btn className="bg-white !m-1" key={key} onClick={addImage}>
+          <Btn
+            className="bg-white !m-1"
+            key={key}
+            onClick={() => addImage(data.urls.raw)}
+          >
             <img
               src={data.urls.small}
               className="image"
