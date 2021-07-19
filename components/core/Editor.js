@@ -80,6 +80,9 @@ const Editor = ({ darkMode, setDarkMode, data, setData }) => {
   // download image as a .jpg
   const downloadAsJpg = () => {
     const coverImage = document.querySelector("#cover_image_download");
+    coverImage.innerHTML = document.getElementById(
+      "cover_image_preview"
+    ).innerHTML;
 
     const downloadImage = html2canvas(coverImage).then(function (canvas) {
       const a = document.createElement("a");
@@ -100,6 +103,9 @@ const Editor = ({ darkMode, setDarkMode, data, setData }) => {
   // download image as a .svg
   const downloadAsSvg = () => {
     const coverImage = document.querySelector("#cover_image_download");
+    coverImage.innerHTML = document.getElementById(
+      "cover_image_preview"
+    ).innerHTML;
 
     html2canvas(coverImage).then(function (canvas) {
       var image = canvas.toDataURL("image/png");
@@ -259,7 +265,11 @@ const Editor = ({ darkMode, setDarkMode, data, setData }) => {
           <div
             id="cover_image_preview"
             className="relative cover_image bg-blue-700 overflow-hidden select-none"
-          ></div>
+          >
+            <Rnd>
+              <h1 className="text-5xl">hihi</h1>
+            </Rnd>
+          </div>
         </div>
       </div>
     </div>
