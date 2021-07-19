@@ -13,7 +13,9 @@ const Component = ({ children }) => {
   };
 
   const style = {
-    position: "relative",
+    position: "absolute",
+    top: 0,
+    left: 0,
   };
 
   return (
@@ -23,7 +25,6 @@ const Component = ({ children }) => {
         x: 0,
         y: 0,
         width: 320,
-        height: 200,
       }}
       onDragStart={onDragStart}
       onDragStop={onDragStop}
