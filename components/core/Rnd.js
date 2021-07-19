@@ -14,7 +14,6 @@ const Component = ({ children }) => {
 
   const style = {
     position: "relative",
-    overflow: "hidden",
   };
 
   return (
@@ -38,7 +37,7 @@ const Component = ({ children }) => {
           !isEditing && "hidden"
         }`}
       >
-        <div className="absolute top-[-7.5px] left-[-7.5px] rounded-full h-[15px] w-[15px] bg-white border-[3px] border-[#4286f4]"></div>
+        <div className="absolute top-[-7.5px] left-[-7.5px] rounded-full h-[15px] w-[15px] bg-white border-[3px] border-[#4286f4] overflow-visible"></div>
         <div className="absolute top-[-7.5px] right-[-7.5px] rounded-full h-[15px] w-[15px] bg-white border-[3px] border-[#4286f4]"></div>
         <div className="absolute bottom-[-7.5px] left-[-7.5px] rounded-full h-[15px] w-[15px] bg-white border-[3px] border-[#4286f4]"></div>
         <div className="absolute bottom-[-7.5px] right-[-7.5px] rounded-full h-[15px] w-[15px] bg-white border-[3px] border-[#4286f4]"></div>
