@@ -132,3 +132,6 @@
 .resizerComp:hover .resizer {
   display: block !important;
 }
+.app_shadow {
+  box-shadow: 0 10px 40px -10px rgb(0 64 128 / 10%);
+}

@@ -1,38 +1,20 @@
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Rnd from "../components/core/Rnd";
 import { LeftBar, Editor } from "../components";
+import { getTemplate } from "../components/helper";
+import queryString from "query-string";
 
 const app = (props) => {
-  const [data, setData] = useState({
-    title: {
-      fontSize: 72,
-      fontFamily: "Raleway",
-      color: "#222",
-      fontWeight: 700,
-      text: "My Awesome Post Title Goes Here",
-      lineHeight: 80,
-    },
-    tagline: {
-      fontSize: 35,
-      fontFamily: "Playfair-Display",
-      color: "#555",
-      fontWeight: 300,
-      text: "written by @saviomartin",
-      lineHeight: 60,
-    },
-    background: {
-      type: "solid",
-      color: "#F5F5F5",
-    },
-    icon: {
-      name: "react",
-      color: "#4A90E2",
-      fontSize: 125,
-    },
-  });
+  const [data, setData] = useState();
 
-  const code = {
+  useEffect(() => {
+    const { template } = queryString.parse(window.location.search);
+
+    setData(getTemplate(template));
+  }, []);
+
+  const code = data && {
     value: (
       <>
         <Rnd width={650} x={37} y={166}>
@@ -66,7 +48,6 @@ const app = (props) => {
         <Rnd width="auto" x={900} y={400}>
           <i
             class={`devicon-${data.icon.name}-plain`}
-            className={`${data.icon.fontFamily}`}
             style={{
               fontSize: `${data.icon.fontSize}px`,
               color: data.icon.color,
@@ -78,26 +59,29 @@ const app = (props) => {
   };
 
   const [children, setChildren] = useState([]);
-  const router = useRouter();
-
-  const { template } = router.query;
 
   return (
     <div className="w-full h-[100vh] flex overflow-hidden">
-      <LeftBar
-        {...props}
-        data={data}
-        setData={setData}
-        children={children}
-        setChildren={setChildren}
-      />
-      <Editor
-        {...props}
-        data={data}
-        setData={setData}
-        children={children}
-        code={code}
-      />
+      {data ? (
+        <>
+          <LeftBar
+            {...props}
+            data={data}
+            setData={setData}
+            children={children}
+            setChildren={setChildren}
+          />{" "}
+          <Editor
+            {...props}
+            data={data}
+            setData={setData}
+            children={children}
+            code={code}
+          />
+        </>
+      ) : (
+        "loading"
+      )}
     </div>
   );
 };

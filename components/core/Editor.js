@@ -268,7 +268,7 @@ const Editor = ({ darkMode, setDarkMode, data, setData, children, code }) => {
         <div className="scale-[.85]">
           <div
             id="cover_image_preview"
-            className="relative cover_image bg-blue-700 overflow-hidden select-none"
+            className="relative cover_image bg-blue-700 overflow-hidden select-none border border-[#ddd]"
           >
             {children.map((child, key) => (
               <Rnd key={key}>{child.component}</Rnd>

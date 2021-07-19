@@ -12,7 +12,9 @@ const GradientColorPicker = ({ data, setData }) => {
     color1: data.background.color1 ? data.background.color1 : "#BA0352",
     color2: data.background.color2 ? data.background.color2 : "#5E00F6",
   });
-  const [direction, setDirection] = useState(0);
+  const [direction, setDirection] = useState(
+    data.background.direction ? data.background.direction : 0
+  );
 
   const handleColorChange = (color, colorNo) => {
     if (colorNo === "color1") {
