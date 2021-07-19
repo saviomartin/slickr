@@ -14,6 +14,7 @@ import Btn from "../utils/Btn";
 import EditArea from "./EditArea";
 import ImageArea from "./ImageArea";
 import UploadArea from "./UploadArea";
+import SavedArea from "./SavedArea";
 
 const TabItem = ({ tab }) => {
   return (
@@ -99,6 +100,14 @@ const LeftBar = ({ data, setData, children, setChildren }) => {
         )}
         {value === "uploads" && (
           <UploadArea
+            data={data}
+            setData={setData}
+            children={children}
+            setChildren={setChildren}
+          />
+        )}
+        {value === "saved" && (
+          <SavedArea
             data={data}
             setData={setData}
             children={children}

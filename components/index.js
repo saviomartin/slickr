@@ -11,8 +11,5 @@ export { default as GradientColorPicker } from "./utils/GradientColorPicker";
 export { default as PatternPicker } from "./utils/PatternPicker";
 export { default as IconsPicker } from "./utils/IconsPicker";
 
-// templates
-export { default as Template1 } from "./templates/Template1";
-
 // NoSsr
 export { default as NoSsr } from "./NoSSr";

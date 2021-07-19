@@ -80,6 +80,15 @@ const TextTab = ({ title, setTitle, name }) => {
         className="bg-white epilogue w-full"
         onChange={(e) => setTitle({ ...title, fontSize: e.target.value })}
       />
+      <p className="text-xs text-[#666] my-3">Line Height</p>
+      <TextField
+        label="Line Height"
+        variant="outlined"
+        size="small"
+        value={title.lineHeight}
+        className="bg-white epilogue w-full"
+        onChange={(e) => setTitle({ ...title, lineHeight: e.target.value })}
+      />
       <p className="text-xs text-[#666] my-3">Font Family</p>
       <Select
         value={title.fontFamily}

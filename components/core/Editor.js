@@ -17,7 +17,7 @@ import html2canvas from "html2canvas";
 // react hot toast
 import toast from "react-hot-toast";
 
-const Editor = ({ darkMode, setDarkMode, data, setData, children }) => {
+const Editor = ({ darkMode, setDarkMode, data, setData, children, code }) => {
   const [anchorEl, setAnchorEl] = useState(null); // for menu
   const [fileName, setFileName] = useState("Untitled Design");
 
@@ -273,6 +273,7 @@ const Editor = ({ darkMode, setDarkMode, data, setData, children }) => {
             {children.map((child, key) => (
               <Rnd key={key}>{child.component}</Rnd>
             ))}
+            {code.value}
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Rnd } from "react-rnd";
 
-const Component = ({ children }) => {
+const Component = ({ children, width, x, y }) => {
   const [isEditing, setIsEditing] = useState(false);
 
   const onDragStart = () => {
@@ -22,9 +22,9 @@ const Component = ({ children }) => {
     <Rnd
       style={style}
       default={{
-        x: 0,
-        y: 0,
-        width: 320,
+        x: x || 0,
+        y: y || 0,
+        width: width || 320,
       }}
       onDragStart={onDragStart}
       onDragStop={onDragStop}

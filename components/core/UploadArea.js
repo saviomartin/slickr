@@ -102,7 +102,7 @@ const UploadArea = ({ children, setChildren }) => {
         <div className="w-full bg-gradient p-[1px] rounded-[4px] text-[#222]">
           <input
             type="file"
-            class="custom-file-input"
+            className="custom-file-input"
             onDragEnter={onDragEnter}
             onDragLeave={onDragLeave}
             onDrop={onDragLeave}

@@ -25,6 +25,7 @@ const EditArea = ({ data, setData }) => {
     color: data.title.color,
     fontWeight: data.title.fontWeight,
     text: data.title.text,
+    lineHeight: data.title.lineHeight,
   });
   const [tagline, setTagline] = useState({
     fontSize: data.tagline.fontSize,
@@ -32,6 +33,7 @@ const EditArea = ({ data, setData }) => {
     color: data.tagline.color,
     fontWeight: data.tagline.fontWeight,
     text: data.tagline.text,
+    lineHeight: data.tagline.lineHeight,
   });
 
   // current background tab
@@ -42,16 +44,11 @@ const EditArea = ({ data, setData }) => {
   useEffect(() => {
     setData({
       ...data,
-      title: {
-        fontSize: title.fontSize,
-        fontFamily: title.fontFamily,
-        color: title.color,
-        fontWeight: title.fontWeight,
-        text: title.text,
-      },
+      title: title,
       tagline: tagline,
     });
   }, [title, tagline]);
+
   return (
     <>
       <TextTab title={title} setTitle={setTitle} name="title" />
