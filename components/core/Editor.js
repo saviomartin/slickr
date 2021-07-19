@@ -5,6 +5,7 @@ import { FiDownload, FiMoon, FiSun } from "react-icons/fi";
 
 // material btn
 import Btn from "../utils/Btn";
+import Rnd from "./Rnd";
 
 // material ui
 import Menu from "@material-ui/core/Menu";
@@ -56,6 +57,9 @@ const Editor = ({ darkMode, setDarkMode, data, setData }) => {
   // download image as a .png
   const downloadAsPng = () => {
     const coverImage = document.querySelector("#cover_image_download");
+    coverImage.innerHTML = document.getElementById(
+      "cover_image_preview"
+    ).innerHTML;
 
     const downloadImage = html2canvas(coverImage).then(function (canvas) {
       const a = document.createElement("a");
@@ -153,16 +157,8 @@ const Editor = ({ darkMode, setDarkMode, data, setData }) => {
     <div className="h-full w-full lg:w-[67.5%] xl:w-[67.5%] relative bg-white flex items-center justify-center flex-col">
       <div
         id="cover_image_download"
-        className="absolute z-[-10] cover_image bg-blue-700"
-      >
-        <p className="text-5xl">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero nemo
-          laborum consectetur saepe, qui nisi possimus maiores id, est non
-          numquam! Id facilis vero quasi voluptatem ad blanditiis ullam error
-          architecto reprehenderit nisi? Ratione omnis quia qui. Laborum,
-          aspernatur sequi?
-        </p>
-      </div>
+        className="absolute z-[-10] cover_image"
+      ></div>
       <svg
         id="mySvg"
         xmlns="http://www.w3.org/2000/svg"
@@ -262,10 +258,8 @@ const Editor = ({ darkMode, setDarkMode, data, setData }) => {
         <div className="scale-[.85]">
           <div
             id="cover_image_preview"
-            className="relative cover_image bg-blue-700"
-          >
-            <p className="text-5xl">{data.icon.color}</p>
-          </div>
+            className="relative cover_image bg-blue-700 overflow-hidden select-none"
+          ></div>
         </div>
       </div>
     </div>

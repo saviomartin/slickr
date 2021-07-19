@@ -26,7 +26,9 @@
     "react-infinite-scroll-component": "^6.1.0",
     "react-infinite-scroll-hook": "^4.0.1",
     "react-linear-gradient-picker": "^1.1.4",
-    "react-select-material-ui": "^7.0.0"
+    "react-resizable-rotatable-draggable": "^0.2.0",
+    "react-select-material-ui": "^7.0.0",
+    "styled-components": "^5.3.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.6",
