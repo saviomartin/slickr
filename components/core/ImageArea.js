@@ -60,6 +60,12 @@ const InfiniteScroll = () => {
     }
   };
 
+  const addImage = () => {
+    document
+      .getElementById("cover_image_preview")
+      .append(JSON.parse(<h1>hi</h1>));
+  };
+
   return (
     <div className="w-full h-auto flex items-center justify-center flex-col p-3">
       <TextField
@@ -74,7 +80,7 @@ const InfiniteScroll = () => {
       />
       <div className="flex items-center justify-center flex-wrap w-full h-auto mt-2">
         {data.map((data, key) => (
-          <Btn className="bg-white !m-1" key={key}>
+          <Btn className="bg-white !m-1" key={key} onClick={addImage}>
             <img
               src={data.urls.small}
               className="image"
