@@ -2,6 +2,9 @@ import { TextField } from "@material-ui/core";
 import axios from "axios";
 import React, { useEffect, useState, useRef } from "react";
 import { Btn } from "..";
+// icons
+import { FiBookmark } from "react-icons/fi";
+import { BsFillBookmarkFill } from "react-icons/bs";
 
 const InfiniteScroll = ({ children, setChildren }) => {
   const [data, setData] = useState([]);
@@ -69,6 +72,60 @@ const InfiniteScroll = ({ children, setChildren }) => {
     ]);
   };
 
+  const [bookmarks, setBookmarks] = useState([]);
+
+  const fetchBookmarks = () => {
+    if (window.localStorage.getItem("saved")) {
+      setBookmarks(JSON.parse(window.localStorage.getItem("saved")));
+    } else {
+      window.localStorage.setItem("saved", JSON.stringify([]));
+    }
+  };
+
+  useEffect(() => {
+    fetchBookmarks();
+  }, []);
+
+  const fetchBookmarked = (src) => {
+    if (bookmarks.some((image) => image.src === src)) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  // bookmarking a image
+  const bookmarkImage = (src) => {
+    if (typeof window !== "undefined") {
+      if (fetchBookmarked(src)) {
+        // removing bookmark if already bookmarked
+        window.localStorage.setItem(
+          "saved",
+          JSON.stringify(bookmarks.filter((image) => image.src !== src))
+        );
+
+        // making state uptodate
+        fetchBookmarks();
+        fetchBookmarked(src);
+      } else {
+        // adding bookmark
+        window.localStorage.setItem(
+          "saved",
+          JSON.stringify([
+            ...bookmarks,
+            {
+              src: src,
+            },
+          ])
+        );
+
+        // making state uptodate
+        fetchBookmarks();
+        fetchBookmarked(src);
+      }
+    }
+  };
+
   return (
     <div className="w-full h-auto flex items-center justify-center flex-col p-3">
       <TextField
@@ -82,20 +139,29 @@ const InfiniteScroll = ({ children, setChildren }) => {
         className="w-full epilogue bg-white"
       />
       <div className="flex items-center justify-center flex-wrap w-full h-auto mt-2">
-        {data.map((data, key) => (
-          <Btn
-            className="bg-white !m-1"
-            key={key}
-            onClick={() => addImage(data.urls.raw)}
-          >
-            <img
-              src={data.urls.small}
-              className="image"
-              alt={data.alt_description}
-              className="h-[145px] w-[145px] rounded-[3px]"
-            />
-          </Btn>
-        ))}
+        {data.map((data, key) => {
+          return (
+            <Btn className="bg-white !m-1" key={key}>
+              <img
+                src={data.urls.small}
+                className="image"
+                alt={data.alt_description}
+                onClick={() => addImage(data.urls.raw)}
+                className="h-[145px] w-[145px] rounded-[3px]"
+              />
+              <div
+                className="text-[#F5BA31] duration-500 text-lg capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover poppins dark:bg-[#1F1F1F] border border-transparent dark:border-[#555] absolute top-1 right-1"
+                onClick={() => bookmarkImage(data.urls.raw)}
+              >
+                {fetchBookmarked(data.urls.raw) ? (
+                  <BsFillBookmarkFill className="text-md span duration-500" />
+                ) : (
+                  <FiBookmark className="text-md span duration-500" />
+                )}
+              </div>
+            </Btn>
+          );
+        })}
       </div>
       <div className="loading" ref={loader}>
         <h2>Load More</h2>
