@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import toast from "react-hot-toast";
 import Btn from "../utils/Btn";
 
-const UploadArea = () => {
+const UploadArea = ({ children, setChildren }) => {
   const [images, setImages] = useState([]);
 
   const fetchImages = () => {
@@ -87,6 +87,15 @@ const UploadArea = () => {
     }
   };
 
+  const addImage = (src) => {
+    setChildren([
+      ...children,
+      {
+        component: <img src={src} style={{ height: "100%", width: "100%" }} />,
+      },
+    ]);
+  };
+
   return (
     <div className="w-full h-full p-3">
       <Btn className="!w-full">
@@ -104,7 +113,11 @@ const UploadArea = () => {
       </Btn>
       <div className="mt-2 w-full">
         {images.map((data, key) => (
-          <Btn className="bg-white !m-1" key={key}>
+          <Btn
+            className="bg-white !m-1"
+            key={key}
+            onClick={() => addImage(data.data)}
+          >
             <img
               src={data.data}
               className="image"
