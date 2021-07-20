@@ -1,17 +1,25 @@
-import { MenuItem, Select, TextField } from "@material-ui/core";
 import { useEffect, useState } from "react";
+
+// material-ui
+import { MenuItem, Select, TextField } from "@material-ui/core";
+
+// sketch picker from react color
 import { SketchPicker } from "react-color";
-import Btn from "./Btn";
+import Btn from "./Btn"; // material btn
 
 const IconsPicker = ({ data, setData }) => {
-  const [icons, setIcons] = useState([]);
+  const [icons, setIcons] = useState([]); // icons from devicons api
+
+  // properties
   const [icon, setIcon] = useState(data.icon.name ? data.icon.name : "react");
-  const [displayColorPicker, setDisplayColorPicker] = useState(false);
   const [color, setColor] = useState({
     color: data.icon.color ? data.icon.color : "#00ff00",
     opa: 1,
   });
 
+  const [displayColorPicker, setDisplayColorPicker] = useState(false); // show/hide color picker
+
+  // handle change
   const handleColorChange = (color) => {
     setColor({
       color: color.hex,
@@ -26,6 +34,7 @@ const IconsPicker = ({ data, setData }) => {
     });
   };
 
+  // styles to make the sketchbar pop over
   const popover = {
     position: "absolute",
     zIndex: "2",
@@ -38,6 +47,7 @@ const IconsPicker = ({ data, setData }) => {
     left: "0px",
   };
 
+  // api to get icons from devicons
   useEffect(() => {
     fetch(
       "https://raw.githubusercontent.com/devicons/devicon/master/devicon.json"
@@ -47,6 +57,7 @@ const IconsPicker = ({ data, setData }) => {
         setIcons(data);
       });
   }, []);
+
   return (
     <div>
       <p className="text-xs text-[#666] mb-3">Choose your Icon:</p>

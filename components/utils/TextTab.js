@@ -1,17 +1,23 @@
-import { TextField } from "@material-ui/core";
 import React, { useState } from "react";
-import TabWrapper from "./TabWrapper";
+
+// material-ui
+import { TextField } from "@material-ui/core";
 import { MenuItem, Select } from "@material-ui/core";
 import { SketchPicker } from "react-color";
-import Btn from "./Btn";
+
+// components
+import { Btn, TabWrapper } from "..";
 
 const TextTab = ({ title, setTitle, name }) => {
-  const [displayColorPicker, setDisplayColorPicker] = useState(false);
+  const [displayColorPicker, setDisplayColorPicker] = useState(false); // show/hide color picker
+
+  // properties
   const [color, setColor] = useState({
     color: title.color ? title.color : "#00ff00",
     opa: 1,
   });
 
+  // all weights
   const weights = [
     "100",
     "200",
@@ -23,6 +29,8 @@ const TextTab = ({ title, setTitle, name }) => {
     "800",
     "900",
   ];
+
+  // all font families
   const families = [
     "Poppins",
     "Inter",
@@ -34,6 +42,7 @@ const TextTab = ({ title, setTitle, name }) => {
     "Fira-Sans",
   ];
 
+  // handle color change
   const handleColorChange = (color) => {
     setColor({
       color: color.hex,
@@ -45,6 +54,7 @@ const TextTab = ({ title, setTitle, name }) => {
     });
   };
 
+  // styles to make the sketchbar pop over
   const popover = {
     position: "absolute",
     zIndex: "2",
@@ -57,6 +67,7 @@ const TextTab = ({ title, setTitle, name }) => {
     left: "0px",
   };
 
+  // capitalize first letter
   const capitalize = ([first, ...rest]) =>
     `${first.toUpperCase()}${rest.join("")}`;
 
