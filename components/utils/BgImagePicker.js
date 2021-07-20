@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 // material-ui
 import { Slider, TextField } from "@material-ui/core";
 import Btn from "./Btn";
+
+// sketch picker from react color
 import { SketchPicker } from "react-color";
 
 const BgImagePicker = ({ data, setData }) => {
   const [displayColorPicker, setDisplayColorPicker] = useState(false); // show/hide color picker
+
+  // properties
   const [color, setColor] = useState({
     color: data.background.color ? data.background.color : "#000",
     opa: 1,
@@ -18,6 +22,7 @@ const BgImagePicker = ({ data, setData }) => {
     data.background.opacity ? data.background.opacity : 60
   );
 
+  // changeBg on enter click
   const changeBg = (e) => {
     if (e.keyCode === 13) {
       if (bgImageURL.replace(/\s/g, "").length) {
