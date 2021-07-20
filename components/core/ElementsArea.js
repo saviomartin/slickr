@@ -172,7 +172,7 @@ const ElementsArea = ({ children, setChildren }) => {
               onClick={() => changePack(data.value)}
             >
               <img
-                src={`/elements/${data.name
+                src={`/elements/assets/${data.name
                   .replace(/\s+/g, "-")
                   .toLowerCase()}.png`}
                 alt={data.name}
