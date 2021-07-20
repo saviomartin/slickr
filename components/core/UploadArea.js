@@ -1,8 +1,8 @@
-import axios from "axios";
-import React, { useState } from "react";
-import { useEffect } from "react";
-import toast from "react-hot-toast";
-import Btn from "../utils/Btn";
+import React, { useState, useEffect } from "react";
+
+import axios from "axios"; // axios
+import toast from "react-hot-toast"; // toast
+import Btn from "../utils/Btn"; // material-ui
 
 const UploadArea = ({ children, setChildren }) => {
   const [images, setImages] = useState([]);
@@ -17,6 +17,7 @@ const UploadArea = ({ children, setChildren }) => {
     fetchImages();
   }, []);
 
+  // changing appearence of button
   const onDragEnter = (e) => {
     document.getElementById("fileInput").classList.add("dragover");
   };
@@ -24,9 +25,11 @@ const UploadArea = ({ children, setChildren }) => {
     document.getElementById("fileInput").classList.remove("dragover");
   };
 
+  // getting base 64 and upload to imggur
   const getBase64 = (file) => {
     let reader = new FileReader();
     reader.readAsDataURL(file);
+
     reader.onload = () => {
       const formData = new FormData();
       formData.append(
@@ -73,6 +76,8 @@ const UploadArea = ({ children, setChildren }) => {
       });
     };
   };
+
+  // basic checking
   const uploadImage = (e) => {
     e.preventDefault();
     const file = e.target.files[0];
@@ -87,6 +92,7 @@ const UploadArea = ({ children, setChildren }) => {
     }
   };
 
+  // adding image to editor
   const addImage = (src) => {
     setChildren([
       ...children,

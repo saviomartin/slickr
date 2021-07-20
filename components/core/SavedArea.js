@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
+
+// icons
 import { BsFillBookmarkFill } from "react-icons/bs";
 import { FiBookmark } from "react-icons/fi";
+
+// material icons
 import Btn from "../utils/Btn";
 
 const SavedArea = ({ children, setChildren }) => {
-  const [bookmarks, setBookmarks] = useState([]);
+  const [bookmarks, setBookmarks] = useState([]); // bookmarks
 
   const fetchBookmarks = () => {
     if (window.localStorage.getItem("saved")) {
@@ -58,6 +62,7 @@ const SavedArea = ({ children, setChildren }) => {
     }
   };
 
+  // adding image to app
   const addImage = (src) => {
     setChildren([
       ...children,

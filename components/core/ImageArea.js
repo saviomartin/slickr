@@ -1,7 +1,8 @@
-import { TextField } from "@material-ui/core";
-import axios from "axios";
 import React, { useEffect, useState, useRef } from "react";
+
+import { TextField } from "@material-ui/core"; // material-ui
 import { Btn } from "..";
+
 // icons
 import { FiBookmark } from "react-icons/fi";
 import { BsFillBookmarkFill } from "react-icons/bs";
@@ -10,6 +11,21 @@ const InfiniteScroll = ({ children, setChildren }) => {
   const [data, setData] = useState([]);
   const [query, setQuery] = useState("code");
   const [searchValue, setSearchValue] = useState("code");
+
+  // bookmarks
+  const [bookmarks, setBookmarks] = useState([]);
+
+  const fetchBookmarks = () => {
+    if (window.localStorage.getItem("saved")) {
+      setBookmarks(JSON.parse(window.localStorage.getItem("saved")));
+    } else {
+      window.localStorage.setItem("saved", JSON.stringify([]));
+    }
+  };
+
+  useEffect(() => {
+    fetchBookmarks();
+  }, []);
 
   // tracking on which page we currently are
   const [page, setPage] = useState(1);
@@ -34,16 +50,10 @@ const InfiniteScroll = ({ children, setChildren }) => {
     const client_id = process.env.NEXT_PUBLIC_UNSPLASH_CLIENT_ID;
     const fetchUrl = `https://api.unsplash.com/search/photos?client_id=${client_id}&query=${searchValue}&page=${page}&per_page=12`;
 
-    axios
-      .get(fetchUrl, {
-        headers: {},
-      })
-      .then((response) => {
-        setData([...data, ...response.data.results]);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    fetch(fetchUrl)
+      .then((res) => res.json())
+      .then((json) => setData([...data, ...json.results]))
+      .catch((err) => console.error("error:" + err));
   }, [page]);
 
   // here we handle what happens when user scrolls to Load More div
@@ -55,6 +65,7 @@ const InfiniteScroll = ({ children, setChildren }) => {
     }
   };
 
+  // search image on enter
   const searchImages = (e) => {
     if (e.keyCode === 13) {
       setSearchValue(query);
@@ -63,6 +74,7 @@ const InfiniteScroll = ({ children, setChildren }) => {
     }
   };
 
+  // add image to app
   const addImage = (src) => {
     setChildren([
       ...children,
@@ -71,20 +83,6 @@ const InfiniteScroll = ({ children, setChildren }) => {
       },
     ]);
   };
-
-  const [bookmarks, setBookmarks] = useState([]);
-
-  const fetchBookmarks = () => {
-    if (window.localStorage.getItem("saved")) {
-      setBookmarks(JSON.parse(window.localStorage.getItem("saved")));
-    } else {
-      window.localStorage.setItem("saved", JSON.stringify([]));
-    }
-  };
-
-  useEffect(() => {
-    fetchBookmarks();
-  }, []);
 
   const fetchBookmarked = (src) => {
     if (bookmarks.some((image) => image.src === src)) {

@@ -1,17 +1,40 @@
-import { TextField } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
+
+// material-ui
+import { TextField } from "@material-ui/core";
+
+// icons
 import { BsFillBookmarkFill } from "react-icons/bs";
 import { FiBookmark, FiChevronRight } from "react-icons/fi";
-import Btn from "../utils/Btn";
+
+// components
+import { Btn } from "..";
 
 const ElementsArea = ({ children, setChildren }) => {
   const [data, setData] = useState([]);
   const [query, setQuery] = useState("");
-  const [elements, setElements] = useState([]);
   const [searchValue, setSearchValue] = useState("");
 
+  // bookmarks
+  const [bookmarks, setBookmarks] = useState([]);
+
+  const fetchBookmarks = () => {
+    if (window.localStorage.getItem("saved")) {
+      setBookmarks(JSON.parse(window.localStorage.getItem("saved")));
+    } else {
+      window.localStorage.setItem("saved", JSON.stringify([]));
+    }
+  };
+
   useEffect(() => {
-    const fetchUrl = `https://iconfinder-api-auth.herokuapp.com/v4/icons/search?query=${searchValue}&count=50`;
+    fetchBookmarks();
+  }, []);
+
+  // elements json
+  const [elements, setElements] = useState([]);
+
+  useEffect(() => {
+    const fetchUrl = `https://iconfinder-api-auth.herokuapp.com/v4/icons/search?query=${searchValue}&count=50`; // icon finder api
 
     fetch(fetchUrl)
       .then((res) => res.json())
@@ -41,20 +64,6 @@ const ElementsArea = ({ children, setChildren }) => {
       },
     ]);
   };
-
-  const [bookmarks, setBookmarks] = useState([]);
-
-  const fetchBookmarks = () => {
-    if (window.localStorage.getItem("saved")) {
-      setBookmarks(JSON.parse(window.localStorage.getItem("saved")));
-    } else {
-      window.localStorage.setItem("saved", JSON.stringify([]));
-    }
-  };
-
-  useEffect(() => {
-    fetchBookmarks();
-  }, []);
 
   const fetchBookmarked = (src) => {
     if (bookmarks.some((image) => image.src === src)) {
@@ -100,6 +109,7 @@ const ElementsArea = ({ children, setChildren }) => {
     setSearchValue(value);
     setQuery(value);
   };
+
   return (
     <div className="w-full h-auto flex items-center justify-center flex-col p-3">
       <TextField
