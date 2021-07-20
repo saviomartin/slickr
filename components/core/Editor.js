@@ -4,8 +4,7 @@ import React, { useState, useEffect } from "react";
 import { FiDownload, FiMoon, FiSun } from "react-icons/fi";
 
 // material btn
-import Btn from "../utils/Btn";
-import Rnd from "./Rnd";
+import { Btn, Rnd } from "..";
 
 // material ui
 import Menu from "@material-ui/core/Menu";
@@ -54,12 +53,17 @@ const Editor = ({ darkMode, setDarkMode, data, setData, children, code }) => {
     window.addEventListener("resize", resizeCoverImage);
   });
 
-  // download image as a .png
-  const downloadAsPng = () => {
-    const coverImage = document.querySelector("#cover_image_download");
+  const coverImage = document.querySelector("#cover_image_download");
+
+  const addInnerHtml = () => {
     coverImage.innerHTML = document.getElementById(
       "cover_image_preview"
     ).innerHTML;
+  };
+
+  // download image as a .png
+  const downloadAsPng = () => {
+    addInnerHtml();
 
     const downloadImage = html2canvas(coverImage, {
       useCORS: true,
@@ -81,10 +85,7 @@ const Editor = ({ darkMode, setDarkMode, data, setData, children, code }) => {
 
   // download image as a .jpg
   const downloadAsJpg = () => {
-    const coverImage = document.querySelector("#cover_image_download");
-    coverImage.innerHTML = document.getElementById(
-      "cover_image_preview"
-    ).innerHTML;
+    addInnerHtml();
 
     const downloadImage = html2canvas(coverImage).then(function (canvas) {
       const a = document.createElement("a");
@@ -104,10 +105,7 @@ const Editor = ({ darkMode, setDarkMode, data, setData, children, code }) => {
 
   // download image as a .svg
   const downloadAsSvg = () => {
-    const coverImage = document.querySelector("#cover_image_download");
-    coverImage.innerHTML = document.getElementById(
-      "cover_image_preview"
-    ).innerHTML;
+    addInnerHtml();
 
     html2canvas(coverImage, {
       useCORS: true,
