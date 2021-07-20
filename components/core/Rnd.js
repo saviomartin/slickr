@@ -1,17 +1,19 @@
 import React, { useState } from "react";
-import { Rnd } from "react-rnd";
+
+import { Rnd } from "react-rnd"; // rnd library
 
 const Component = ({ children, width, x, y }) => {
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = useState(false); // checking is dragging or reszing
 
+  // adding border and effect when editing
   const onDragStart = () => {
     setIsEditing(true);
   };
-
   const onDragStop = () => {
     setIsEditing(false);
   };
 
+  // default styles
   const style = {
     position: "absolute",
     top: 0,

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 // material vertical tabs
 import { Tab, Tabs } from "@material-ui/core";
