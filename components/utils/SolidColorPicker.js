@@ -1,14 +1,17 @@
 import React, { useState } from "react";
+
+// sketch picker from react color
 import { SketchPicker } from "react-color";
-import Btn from "./Btn";
+import Btn from "./Btn"; // material btn
 
 const SolidColorPicker = ({ data, setData }) => {
-  const [displayColorPicker, setDisplayColorPicker] = useState(false);
+  const [displayColorPicker, setDisplayColorPicker] = useState(false); // show/hide color picker
   const [color, setColor] = useState({
     color: data.background.color ? data.background.color : "#00ff00",
     opa: 1,
   });
 
+  // handle change
   const handleColorChange = (color) => {
     setColor({
       color: color.hex,
@@ -23,6 +26,7 @@ const SolidColorPicker = ({ data, setData }) => {
     });
   };
 
+  // styles to make the sketchbar pop over
   const popover = {
     position: "absolute",
     zIndex: "2",

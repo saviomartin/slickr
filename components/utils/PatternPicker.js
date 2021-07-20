@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { SketchPicker } from "react-color";
-import Btn from "./Btn";
+
+import { SketchPicker } from "react-color"; // sketch picker from react color
+import Btn from "./Btn"; // material btn
 
 // material ui
 import Menu from "@material-ui/core/Menu";
@@ -18,12 +19,14 @@ const PatternPicker = ({ data, setData }) => {
   const [displayColorPickers, setDisplayColorPickers] = useState({
     colorPicker1: false,
     colorPicker2: false,
-  });
+  }); // show/hide color picker
+
   const [colors, setColors] = useState({
     color1: data.background.color1 ? data.background.color1 : "#BA0352",
     color2: data.background.color2 ? data.background.color2 : "#5E00F6",
   });
 
+  // handle change
   const handleColorChange = (color, colorNo) => {
     if (colorNo === "color1") {
       setColors({
@@ -53,6 +56,7 @@ const PatternPicker = ({ data, setData }) => {
     });
   };
 
+  // styles to make the sketchbar pop over
   const popover = {
     position: "absolute",
     zIndex: "2",
@@ -65,6 +69,7 @@ const PatternPicker = ({ data, setData }) => {
     left: "0px",
   };
 
+  // all patterns
   const patterns = [
     {
       name: "Jigsaw",

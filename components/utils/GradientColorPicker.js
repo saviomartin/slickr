@@ -1,13 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+
+// sketch picker from react color
 import { SketchPicker } from "react-color";
-import Btn from "./Btn";
-import CircularSlider from "@fseehawer/react-circular-slider";
+import CircularSlider from "@fseehawer/react-circular-slider"; // angle picker
+
+import Btn from "./Btn"; // material btn
 
 const GradientColorPicker = ({ data, setData }) => {
   const [displayColorPickers, setDisplayColorPickers] = useState({
     colorPicker1: false,
     colorPicker2: false,
-  });
+  }); // show/hide color picker
+
+  // properties
   const [colors, setColors] = useState({
     color1: data.background.color1 ? data.background.color1 : "#BA0352",
     color2: data.background.color2 ? data.background.color2 : "#5E00F6",
@@ -16,6 +21,7 @@ const GradientColorPicker = ({ data, setData }) => {
     data.background.direction ? data.background.direction : 0
   );
 
+  // handle change
   const handleColorChange = (color, colorNo) => {
     if (colorNo === "color1") {
       setColors({
@@ -39,6 +45,7 @@ const GradientColorPicker = ({ data, setData }) => {
     });
   };
 
+  // styles to make the sketchbar pop over
   const popover = {
     position: "absolute",
     zIndex: "9999",
