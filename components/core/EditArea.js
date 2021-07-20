@@ -1,13 +1,15 @@
-import { Tab, Tabs, TextField } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
-import TabWrapper from "../utils/TabWrapper";
 
-// color pickers
-import SolidColorPicker from "../utils/SolidColorPicker";
-import GradientColorPicker from "../utils/GradientColorPicker";
-import PatternPicker from "../utils/PatternPicker";
-import IconsPicker from "../utils/IconsPicker";
-import TextTab from "../utils/TextTab";
+import { Tab, Tabs } from "@material-ui/core"; // material-ui
+
+import {
+  SolidColorPicker,
+  GradientColorPicker,
+  PatternPicker, // color pickers
+  IconsPicker, // icon picker
+  TabWrapper, // tab wrapper
+  TextTab, // text tab wrapper
+} from "..";
 
 const BgTabItem = ({ tab }) => {
   return (
@@ -39,6 +41,7 @@ const EditArea = ({ data, setData }) => {
   // current background tab
   const [bgValue, setBgValue] = useState(data.background.type);
 
+  // background tabs
   const backgroundTabs = ["solid", "gradient", "pattern"];
 
   useEffect(() => {

@@ -10,6 +10,7 @@ export { default as SolidColorPicker } from "./utils/SolidColorPicker";
 export { default as GradientColorPicker } from "./utils/GradientColorPicker";
 export { default as PatternPicker } from "./utils/PatternPicker";
 export { default as IconsPicker } from "./utils/IconsPicker";
+export { default as TextTab } from "./utils/TextTab";
 
 // NoSsr
 export { default as NoSsr } from "./NoSSr";
