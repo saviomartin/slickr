@@ -1,16 +1,19 @@
-import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import Rnd from "../components/core/Rnd";
-import { LeftBar, Editor } from "../components";
+
+// Components
+import { Rnd, LeftBar, Editor } from "../components";
+
+// helpers
 import { getTemplate } from "../components/helper";
-import queryString from "query-string";
+
+import queryString from "query-string"; // parse query string
 
 const app = (props) => {
   const [data, setData] = useState();
+  const [children, setChildren] = useState([]); // default state
 
   useEffect(() => {
     const { template } = queryString.parse(window.location.search);
-
     setData(getTemplate(template));
   }, []);
 
@@ -57,8 +60,6 @@ const app = (props) => {
       </>
     ),
   };
-
-  const [children, setChildren] = useState([]);
 
   return (
     <div className="w-full h-[100vh] flex overflow-hidden">
