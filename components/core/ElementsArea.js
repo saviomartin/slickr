@@ -1,12 +1,13 @@
 import { TextField } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { BsFillBookmarkFill } from "react-icons/bs";
-import { FiBookmark } from "react-icons/fi";
+import { FiBookmark, FiChevronRight } from "react-icons/fi";
 import Btn from "../utils/Btn";
 
 const ElementsArea = ({ children, setChildren }) => {
   const [data, setData] = useState([]);
   const [query, setQuery] = useState("");
+  const [elements, setElements] = useState([]);
   const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
@@ -17,6 +18,13 @@ const ElementsArea = ({ children, setChildren }) => {
       .then((json) => setData(json.icons))
       .catch((err) => console.error("error:" + err));
   }, [searchValue]);
+
+  useEffect(() => {
+    fetch("/elements/elements.json")
+      .then((res) => res.json())
+      .then((json) => setElements(json))
+      .catch((err) => console.error("error:" + err));
+  }, []);
 
   const searchImages = (e) => {
     if (e.keyCode === 13) {
@@ -87,6 +95,11 @@ const ElementsArea = ({ children, setChildren }) => {
       }
     }
   };
+
+  const changePack = (value) => {
+    setSearchValue(value);
+    setQuery(value);
+  };
   return (
     <div className="w-full h-auto flex items-center justify-center flex-col p-3">
       <TextField
@@ -142,7 +155,29 @@ const ElementsArea = ({ children, setChildren }) => {
           })}
         </div>
       ) : (
-        "hi"
+        <div className="mt-2">
+          {elements.map((data, key) => (
+            <Btn
+              className="!bg-white !rounded-md !p-2 !block !m-2 !my-3"
+              onClick={() => changePack(data.value)}
+            >
+              <img
+                src={`/elements/${data.name
+                  .replace(/\s+/g, "-")
+                  .toLowerCase()}.png`}
+                alt={data.name}
+              />
+              <div className="flex justify-between items-center border-t border-[#ddd] pt-2">
+                <h3 className="text-[16px] capitalize font-bold">
+                  {data.name}
+                </h3>
+                <h3 className="text-sm text-[#666] flex items-center capitalize">
+                  See more <FiChevronRight />
+                </h3>
+              </div>
+            </Btn>
+          ))}
+        </div>
       )}
     </div>
   );
