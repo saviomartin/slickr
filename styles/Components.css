@@ -1,0 +1,57 @@
+/* Cover Image */
+.cover_image {
+  width: 1200px;
+  height: 630px;
+}
+
+/* Shadows */
+.white-light-shadow {
+  box-shadow: 0 14px 36px rgb(0 0 0 / 3%), 0 30px 60px rgb(0 0 0 / 2%);
+}
+
+/* Gradient */
+.bg-gradient {
+  background: linear-gradient(#2c3c96, #564bb3, #ae64db);
+}
+.bg-app-graient-to-l {
+  background: linear-gradient(to left, #2c3c96, #564bb3, #ae64db);
+}
+
+/* Custom file input */
+.custom-file-input {
+  color: transparent;
+  width: 100%;
+}
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom-file-input::before {
+  content: "Upload Image 🚀";
+  color: #222;
+  width: 100%;
+  display: inline-block;
+  border-radius: 4px;
+  padding: 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  font-size: 16px;
+  text-align: center;
+  background: #fff;
+  cursor: pointer;
+  transition: 0.5s;
+  font-weight: 600;
+}
+.custom-file-input:hover::before {
+  border-color: black;
+}
+.dragover::before {
+  content: "Drop, its like Hot 🔥";
+  background: transparent;
+  color: #fff;
+}
+
+/* resize or drag effect */
+.resizerComp:hover .resizer {
+  display: block !important;
+}
