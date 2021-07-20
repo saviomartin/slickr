@@ -158,6 +158,29 @@ const Editor = ({ darkMode, setDarkMode, data, setData, children, code }) => {
       coverImageDownload.style.backgroundColor = data.background.color1;
       coverImageDownload.style.backgroundImage = `url("${data.background.pattern}")`;
       coverImageDownload.style.backgroundSize = "auto";
+    } else if (data.background.type === "image") {
+      if (data.background.src) {
+        coverImagePreview.style.backgroundImage = `url("${data.background.src}")`;
+        coverImagePreview.style.backgroundSize = "cover";
+        coverImageDownload.style.backgroundImage = `url("${data.background.src}")`;
+        coverImageDownload.style.backgroundSize = "cover";
+
+        if (document.querySelector(".overlay")) {
+          document.querySelector(".overlay").style.background =
+            data.background.color;
+          document.querySelector(".overlay").style.opacity =
+            data.background.opacity;
+        } else {
+          const div = document.createElement("div");
+          div.style.height = "100%";
+          div.style.width = "100%";
+          div.classList.add("overlay");
+          div.style.background = data.background.color;
+          div.style.opacity = data.background.opacity;
+
+          coverImagePreview.appendChild(div);
+        }
+      }
     }
   }, [data]);
 

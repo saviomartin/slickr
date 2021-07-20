@@ -55,3 +55,11 @@
 .resizerComp:hover .resizer {
   display: block !important;
 }
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}

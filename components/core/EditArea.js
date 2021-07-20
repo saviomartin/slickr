@@ -5,6 +5,7 @@ import { Tab, Tabs } from "@material-ui/core"; // material-ui
 import {
   SolidColorPicker,
   GradientColorPicker,
+  BgImagePicker,
   PatternPicker, // color pickers
   IconsPicker, // icon picker
   TabWrapper, // tab wrapper
@@ -42,7 +43,7 @@ const EditArea = ({ data, setData }) => {
   const [bgValue, setBgValue] = useState(data.background.type);
 
   // background tabs
-  const backgroundTabs = ["solid", "gradient", "pattern"];
+  const backgroundTabs = ["solid", "gradient", "pattern", "image"];
 
   useEffect(() => {
     setData({
@@ -52,12 +53,17 @@ const EditArea = ({ data, setData }) => {
     });
   }, [title, tagline]);
 
+  const props = {
+    data,
+    setData,
+  };
+
   return (
     <>
       <TextTab title={title} setTitle={setTitle} name="title" />
       <TextTab title={tagline} setTitle={setTagline} name="tagline" />
       <TabWrapper name="Icon">
-        <IconsPicker data={data} setData={setData} />
+        <IconsPicker {...props} />
       </TabWrapper>
       <TabWrapper name="Background">
         <Tabs
@@ -78,15 +84,10 @@ const EditArea = ({ data, setData }) => {
           ))}
         </Tabs>
         <div className="mt-5">
-          {bgValue === "solid" && (
-            <SolidColorPicker data={data} setData={setData} />
-          )}
-          {bgValue === "gradient" && (
-            <GradientColorPicker data={data} setData={setData} />
-          )}
-          {bgValue === "pattern" && (
-            <PatternPicker data={data} setData={setData} />
-          )}
+          {bgValue === "solid" && <SolidColorPicker {...props} />}
+          {bgValue === "gradient" && <GradientColorPicker {...props} />}
+          {bgValue === "pattern" && <PatternPicker {...props} />}
+          {bgValue === "image" && <BgImagePicker {...props} />}
         </div>
       </TabWrapper>
     </>
