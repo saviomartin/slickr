@@ -11,11 +11,8 @@ import { IoShapesOutline } from "react-icons/io5";
 // material btn
 import Btn from "../utils/Btn";
 
-import EditArea from "./EditArea";
-import ImageArea from "./ImageArea";
-import UploadArea from "./UploadArea";
-import SavedArea from "./SavedArea";
-import ElementsArea from "./ElementsArea";
+// areas
+import { EditArea, ImageArea, UploadArea, SavedArea, ElementsArea } from "..";
 
 const TabItem = ({ tab }) => {
   return (
@@ -60,6 +57,13 @@ const LeftBar = ({ data, setData, children, setChildren }) => {
     },
   ];
 
+  const props = {
+    data: data,
+    setData: setData,
+    children: children,
+    setChildren: setChildren,
+  };
+
   return (
     <div className="h-full absolute lg:relative xl:relative w-10/12 lg:w-[32.5%] xl:w-[32.5%] flex bg-[#F1F5FB] border-r border-[#564BB330] white-light-shadow">
       <div className="bg-gradient h-full w-[10px] bg-gradient-to-b"></div>
@@ -91,38 +95,10 @@ const LeftBar = ({ data, setData, children, setChildren }) => {
       </div>
       <div className="w-full h-full flex items-center justify-start flex-col py-3 overflow-y-scroll">
         {value === "home" && <EditArea data={data} setData={setData} />}
-        {value === "elements" && (
-          <ElementsArea
-            data={data}
-            setData={setData}
-            children={children}
-            setChildren={setChildren}
-          />
-        )}
-        {value === "images" && (
-          <ImageArea
-            data={data}
-            setData={setData}
-            children={children}
-            setChildren={setChildren}
-          />
-        )}
-        {value === "uploads" && (
-          <UploadArea
-            data={data}
-            setData={setData}
-            children={children}
-            setChildren={setChildren}
-          />
-        )}
-        {value === "saved" && (
-          <SavedArea
-            data={data}
-            setData={setData}
-            children={children}
-            setChildren={setChildren}
-          />
-        )}
+        {value === "elements" && <ElementsArea {...props} />}
+        {value === "images" && <ImageArea {...props} />}
+        {value === "uploads" && <UploadArea {...props} />}
+        {value === "saved" && <SavedArea {...props} />}
       </div>
     </div>
   );

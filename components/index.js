@@ -2,6 +2,10 @@
 export { default as LeftBar } from "./core/LeftBar";
 export { default as Editor } from "./core/Editor";
 export { default as EditArea } from "./core/EditArea";
+export { default as ImageArea } from "./core/ImageArea";
+export { default as UploadArea } from "./core/UploadArea";
+export { default as SavedArea } from "./core/SavedArea";
+export { default as ElementsArea } from "./core/ElementsArea";
 export { default as Rnd } from "./core/Rnd";
 
 // utils
