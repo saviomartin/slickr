@@ -70,7 +70,7 @@ const app = (props) => {
             setData={setData}
             children={children}
             setChildren={setChildren}
-          />{" "}
+          />
           <Editor
             {...props}
             data={data}

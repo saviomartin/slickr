@@ -15,6 +15,7 @@ import EditArea from "./EditArea";
 import ImageArea from "./ImageArea";
 import UploadArea from "./UploadArea";
 import SavedArea from "./SavedArea";
+import ElementsArea from "./ElementsArea";
 
 const TabItem = ({ tab }) => {
   return (
@@ -90,6 +91,14 @@ const LeftBar = ({ data, setData, children, setChildren }) => {
       </div>
       <div className="w-full h-full flex items-center justify-start flex-col py-3 overflow-y-scroll">
         {value === "home" && <EditArea data={data} setData={setData} />}
+        {value === "elements" && (
+          <ElementsArea
+            data={data}
+            setData={setData}
+            children={children}
+            setChildren={setChildren}
+          />
+        )}
         {value === "images" && (
           <ImageArea
             data={data}
