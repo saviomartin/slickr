@@ -206,7 +206,12 @@ const Editor = ({ darkMode, setDarkMode, data, setData, children, code }) => {
           onChange={(e) => setFileName(e.target.value)}
         />
         <div className="flex">
-          <Btn onClick={() => setDarkMode(!darkMode)}>
+          <Btn
+            onClick={() => {
+              window.localStorage.setItem("darkMode", !darkMode);
+              setDarkMode(!darkMode);
+            }}
+          >
             <div className="px-2 rounded-md p-[8px] flex items-center justify-center text-[#222]">
               {darkMode ? (
                 <FiMoon className="text-xl" />
