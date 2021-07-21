@@ -128,7 +128,7 @@ const ElementsArea = ({ children, setChildren }) => {
         className="m-4"
         variant="outlined"
         label="Search Elements"
-        className="w-full epilogue !bg-auto"
+        className="bg-white dark:bg-[#182341] epilogue w-full"
       />
 
       {isLoading && (

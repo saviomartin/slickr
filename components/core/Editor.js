@@ -202,7 +202,7 @@ const Editor = ({ darkMode, setDarkMode, data, setData, children, code }) => {
           variant="outlined"
           size="small"
           value={fileName}
-          className="!bg-auto epilogue"
+          className="bg-white dark:bg-[#0E102D] epilogue"
           onChange={(e) => setFileName(e.target.value)}
         />
         <div className="flex">
