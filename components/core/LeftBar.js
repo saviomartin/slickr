@@ -64,6 +64,9 @@ const LeftBar = ({ data, setData, children, setChildren }) => {
     setChildren: setChildren,
   };
 
+  const twitterShareLink =
+    "https://twitter.com/intent/tweet?text=Checkout%20slickr.vercel.app%20by%20@saviomartin7.%20The%20most%20powerful%20way%20to%20create%20awesome%20cover%20images%20for%20your%20@hashnode%20blog%20🔥";
+
   return (
     <div className="h-full absolute lg:relative xl:relative w-10/12 lg:w-[32.5%] xl:w-[32.5%] flex bg-[#F1F5FB] dark:bg-[#273250] border-r border-[#564BB330] white-light-shadow">
       <div className="bg-gradient h-full w-[10px] bg-gradient-to-b"></div>
@@ -85,7 +88,7 @@ const LeftBar = ({ data, setData, children, setChildren }) => {
           ))}
         </Tabs>
         <div className="w-[85px] h-[60px] flex flex-col items-center justify-center">
-          <Btn>
+          <Btn href={twitterShareLink}>
             <div className="w-[70px] h-[60px] bg-[#0F84B425] rounded-md flex flex-col items-center justify-center text-[#0F84B4]">
               <FiTwitter className="text-xl mb-1" />
               <h3 className="text-xs font-medium lowercase">Share</h3>
