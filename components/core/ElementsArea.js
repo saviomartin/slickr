@@ -9,11 +9,13 @@ import { FiBookmark, FiChevronRight } from "react-icons/fi";
 
 // components
 import { Btn } from "..";
+import Loader from "./Loader";
 
 const ElementsArea = ({ children, setChildren }) => {
   const [data, setData] = useState([]);
   const [query, setQuery] = useState("");
   const [searchValue, setSearchValue] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   // bookmarks
   const [bookmarks, setBookmarks] = useState([]);
@@ -36,9 +38,14 @@ const ElementsArea = ({ children, setChildren }) => {
   useEffect(() => {
     const fetchUrl = `https://iconfinder-api-auth.herokuapp.com/v4/icons/search?query=${searchValue}&count=50`; // icon finder api
 
+    setIsLoading(true);
+
     fetch(fetchUrl)
       .then((res) => res.json())
-      .then((json) => setData(json.icons))
+      .then((json) => {
+        setData(json.icons);
+        setIsLoading(false);
+      })
       .catch((err) => console.error("error:" + err));
   }, [searchValue]);
 
@@ -106,6 +113,7 @@ const ElementsArea = ({ children, setChildren }) => {
   };
 
   const changePack = (value) => {
+    setData([]);
     setSearchValue(value);
     setQuery(value);
   };
@@ -122,6 +130,12 @@ const ElementsArea = ({ children, setChildren }) => {
         label="Search Elements"
         className="w-full epilogue bg-white"
       />
+
+      {isLoading && (
+        <div className="w-full flex items-center justify-center">
+          {searchValue.replace(/\s/g, "").length ? <Loader /> : null}
+        </div>
+      )}
       {searchValue.replace(/\s/g, "").length ? (
         <div className="flex items-center justify-center flex-wrap w-full h-auto mt-2">
           {data.map((data, key) => {
