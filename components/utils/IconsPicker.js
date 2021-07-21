@@ -60,7 +60,9 @@ const IconsPicker = ({ data, setData }) => {
 
   return (
     <div>
-      <p className="text-xs text-[#666] mb-3">Choose your Icon:</p>
+      <p className="text-xs text-[#666] dark:text-[#bbb] mb-3">
+        Choose your Icon:
+      </p>
       <Select
         value={icon}
         onChange={(e) => {
@@ -83,13 +85,13 @@ const IconsPicker = ({ data, setData }) => {
           </MenuItem>
         ))}
       </Select>
-      <p className="text-xs text-[#666] my-3">Icon Size</p>
+      <p className="text-xs text-[#666] dark:text-[#bbb] my-3">Icon Size</p>
       <TextField
         label="Font Size"
         variant="outlined"
         size="small"
         value={data.icon.fontSize}
-        className="bg-white epilogue w-full"
+        className="!bg-auto epilogue w-full"
         onChange={(e) =>
           setData({
             ...data,
@@ -100,17 +102,17 @@ const IconsPicker = ({ data, setData }) => {
           })
         }
       />
-      <p className="text-xs text-[#666] my-3">Icon Color</p>
+      <p className="text-xs text-[#666] dark:text-[#bbb] my-3">Icon Color</p>
       <Btn>
         <div
-          className="p-2 w-auto rounded-md border border-[#ddd] flex items-center justify-start"
+          className="p-2 w-auto rounded-md border border-[#ddd] dark:border-[#555] flex items-center justify-start"
           onClick={() => setDisplayColorPicker(true)}
         >
           <div
             className="h-[28px] w-[28px] rounded-md"
             style={{ background: color.color }}
           ></div>
-          <h3 className="text-sm uppercase font-semibold mx-2">
+          <h3 className="text-sm uppercase font-semibold mx-2 dark:text-[#fafafa]">
             {color.color}
           </h3>
         </div>

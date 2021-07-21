@@ -14,8 +14,8 @@ import {
 
 const BgTabItem = ({ tab }) => {
   return (
-    <div className="p-2 flex flex-col items-center justify-center text-[#111] border border-[#ddd]">
-      <h3 className="text-sm font-medium lowercase">{tab}</h3>
+    <div className="p-2 flex flex-col items-center justify-center text-[#111] border border-[#ddd] dark:border-[#555]">
+      <h3 className="text-sm font-medium lowercase dark:text-white">{tab}</h3>
     </div>
   );
 };

@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <div
       className={`w-full h-full overflow-x-hidden ${
-        darkMode ? "dark" : "light"
+        darkMode ? "dark text-white" : "light"
       }"`}
     >
       <Toaster position="bottom-right" reverseOrder={false} />

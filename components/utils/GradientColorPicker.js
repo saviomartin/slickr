@@ -60,10 +60,12 @@ const GradientColorPicker = ({ data, setData }) => {
 
   return (
     <div className="text-[#222]">
-      <h3 className="text-sm mb-2 text-[#666]">Choose Background Colors:</h3>
+      <h3 className="text-sm mb-2 text-[#666] dark:text-[#bbb]">
+        Choose Background Colors:
+      </h3>
       <Btn>
         <div
-          className="p-2 w-auto rounded-md border border-[#ddd] flex items-center justify-start"
+          className="p-2 w-auto rounded-md border border-[#ddd] dark:border-[#555] flex items-center justify-start"
           onClick={() =>
             setDisplayColorPickers({
               ...displayColorPickers,
@@ -75,7 +77,7 @@ const GradientColorPicker = ({ data, setData }) => {
             className="h-[28px] w-[28px] rounded-md"
             style={{ background: colors.color1 }}
           ></div>
-          <h3 className="text-sm uppercase font-semibold mx-2">
+          <h3 className="text-sm uppercase font-semibold mx-2 dark:text-[#fafafa]">
             {colors.color1}
           </h3>
         </div>
@@ -102,7 +104,7 @@ const GradientColorPicker = ({ data, setData }) => {
       )}
       <Btn className="!ml-2">
         <div
-          className="p-2 w-auto rounded-md border border-[#ddd] flex items-center justify-start"
+          className="p-2 w-auto rounded-md border border-[#ddd] dark:border-[#555] flex items-center justify-start"
           onClick={() =>
             setDisplayColorPickers({
               ...displayColorPickers,
@@ -114,7 +116,7 @@ const GradientColorPicker = ({ data, setData }) => {
             className="h-[28px] w-[28px] rounded-md"
             style={{ background: colors.color2 }}
           ></div>
-          <h3 className="text-sm uppercase font-semibold mx-2">
+          <h3 className="text-sm uppercase font-semibold mx-2 dark:text-[#fafafa]">
             {colors.color2}
           </h3>
         </div>
@@ -139,25 +141,27 @@ const GradientColorPicker = ({ data, setData }) => {
           />
         </div>
       )}
-      <h3 className="text-sm my-3 text-[#666]">Direction:</h3>
-      <CircularSlider
-        width={90}
-        valueFontSize="20px"
-        labelFontSize="9px"
-        verticalOffset="0em"
-        onChange={(angle) => {
-          setDirection(angle);
-          setData({
-            ...data,
-            background: {
-              type: "gradient",
-              color1: colors.color1,
-              color2: colors.color2,
-              direction: direction,
-            },
-          });
-        }}
-      />
+      <h3 className="text-sm my-3 text-[#666] dark:text-[#bbb]">Direction:</h3>
+      <div className="circularPicker">
+        <CircularSlider
+          width={90}
+          valueFontSize="20px"
+          labelFontSize="9px"
+          verticalOffset="0em"
+          onChange={(angle) => {
+            setDirection(angle);
+            setData({
+              ...data,
+              background: {
+                type: "gradient",
+                color1: colors.color1,
+                color2: colors.color2,
+                direction: direction,
+              },
+            });
+          }}
+        />
+      </div>
     </div>
   );
 };

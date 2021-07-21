@@ -16,6 +16,12 @@
 .bg-app-graient-to-l {
   background: linear-gradient(to left, #2c3c96, #564bb3, #ae64db);
 }
+.dark .bg-gradient {
+  background: linear-gradient(to bottom, #9257fe, #52fdbc);
+}
+.dark .bg-app-graient-to-l {
+  background: linear-gradient(to right, #9257fe, #52fdbc);
+}
 
 /* Custom file input */
 .custom-file-input {
@@ -42,12 +48,9 @@
   transition: 0.5s;
   font-weight: 600;
 }
-.custom-file-input:hover::before {
-  border-color: black;
-}
 .dragover::before {
   content: "Drop, its like Hot 🔥";
-  background: transparent;
+  background: transparent !important;
   color: #fff;
 }
 
@@ -62,4 +65,42 @@
   z-index: -1;
   top: 0;
   left: 0;
+}
+
+/* Normal scrollbar */
+::-webkit-scrollbar {
+  width: 10px !important;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: linear-gradient(to bottom, #2c3c96, #564bb3, #ae64db);
+}
+
+/* Dark Scrollbar */
+.dark *::-webkit-scrollbar {
+  background: #0e102d;
+}
+.dark *::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #9257fe, #52fdbc);
+}
+
+/* Dark Mode */
+.dark input {
+  color: #fff !important;
+}
+.dark .MuiSelect-root {
+  color: #fff !important;
+}
+.dark fieldset {
+  border-color: #555;
+}
+.dark .epilogue * {
+  color: #ddd !important;
+}
+.dark .circularPicker * {
+  color: #fff;
+}
+.dark .custom-file-input::before {
+  background: #182341;
+  color: #fff;
 }

@@ -16,7 +16,7 @@ import { EditArea, ImageArea, UploadArea, SavedArea, ElementsArea } from "..";
 
 const TabItem = ({ tab }) => {
   return (
-    <div className="w-[85px] h-[60px] flex flex-col items-center justify-center text-[#111]">
+    <div className="w-[85px] h-[60px] flex flex-col items-center justify-center text-[#111] dark:text-[#fafafa]">
       {tab.icon}
       <h3 className="text-xs font-medium lowercase">{tab.name}</h3>
     </div>
@@ -65,9 +65,9 @@ const LeftBar = ({ data, setData, children, setChildren }) => {
   };
 
   return (
-    <div className="h-full absolute lg:relative xl:relative w-10/12 lg:w-[32.5%] xl:w-[32.5%] flex bg-[#F1F5FB] border-r border-[#564BB330] white-light-shadow">
+    <div className="h-full absolute lg:relative xl:relative w-10/12 lg:w-[32.5%] xl:w-[32.5%] flex bg-[#F1F5FB] dark:bg-[#273250] border-r border-[#564BB330] white-light-shadow">
       <div className="bg-gradient h-full w-[10px] bg-gradient-to-b"></div>
-      <div className="h-full bg-[#fff] border-r border-[#564BB330] white-light-shadow py-3 flex flex-col items-center justify-between">
+      <div className="h-full bg-[#fff] border-r border-[#564BB330] dark:border-[#fafafa20] white-light-shadow py-3 flex flex-col items-center justify-between dark:bg-[#182341]">
         <Tabs
           value={value}
           onChange={handleChange}

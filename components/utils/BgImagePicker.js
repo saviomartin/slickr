@@ -71,29 +71,31 @@ const BgImagePicker = ({ data, setData }) => {
 
   return (
     <div className="w-full">
-      <h3 className="text-sm mb-2 text-[#666]">Background Image URL:</h3>
+      <h3 className="text-sm mb-2 text-[#666] dark:text-[#bbb]">
+        Background Image URL:
+      </h3>
       <TextField
         label="Image URL"
         variant="outlined"
         size="small"
         value={bgImageURL}
         onKeyDown={(e) => changeBg(e)}
-        className="bg-white epilogue w-full !mt-2"
+        className="!bg-auto epilogue w-full !mt-2"
         onChange={(e) => setBgImageURL(e.target.value)}
       />
-      <h3 className="text-sm mt-4 mb-2 text-[#666]">
+      <h3 className="text-sm mt-4 mb-2 text-[#666] dark:text-[#bbb]">
         Choose Overlay Background Color:
       </h3>
       <Btn>
         <div
-          className="p-2 w-auto rounded-md border border-[#ddd] flex items-center justify-start"
+          className="p-2 w-auto rounded-md border border-[#ddd] dark:border-[#555] flex items-center justify-start"
           onClick={() => setDisplayColorPicker(true)}
         >
           <div
             className="h-[28px] w-[28px] rounded-md"
             style={{ background: color.color }}
           ></div>
-          <h3 className="text-sm uppercase font-semibold mx-2">
+          <h3 className="text-sm uppercase font-semibold mx-2 dark:text-[#fafafa]">
             {color.color}
           </h3>
         </div>
@@ -110,7 +112,9 @@ const BgImagePicker = ({ data, setData }) => {
           />
         </div>
       )}
-      <h3 className="mt-4 text-sm text-[#666]">Choose Opacity:</h3>
+      <h3 className="mt-4 text-sm text-[#666] dark:text-[#bbb]">
+        Choose Opacity:
+      </h3>
       <Slider
         value={opacity}
         min={0}

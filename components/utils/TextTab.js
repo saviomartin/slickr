@@ -73,34 +73,36 @@ const TextTab = ({ title, setTitle, name }) => {
 
   return (
     <TabWrapper name={capitalize(name)}>
-      <p className="text-xs text-[#666] mb-3">Enter an eye catchy {name}</p>
+      <p className="text-xs text-[#666] dark:text-[#bbb] mb-3">
+        Enter an eye catchy {name}
+      </p>
       <TextField
         label={capitalize(name)}
         variant="outlined"
         size="small"
         value={title.text}
-        className="bg-white epilogue w-full"
+        className="!bg-auto epilogue w-full"
         onChange={(e) => setTitle({ ...title, text: e.target.value })}
       />
-      <p className="text-xs text-[#666] my-3">Font Size</p>
+      <p className="text-xs text-[#666] dark:text-[#bbb] my-3">Font Size</p>
       <TextField
         label="Font Size"
         variant="outlined"
         size="small"
         value={title.fontSize}
-        className="bg-white epilogue w-full"
+        className="!bg-auto epilogue w-full"
         onChange={(e) => setTitle({ ...title, fontSize: e.target.value })}
       />
-      <p className="text-xs text-[#666] my-3">Line Height</p>
+      <p className="text-xs text-[#666] dark:text-[#bbb] my-3">Line Height</p>
       <TextField
         label="Line Height"
         variant="outlined"
         size="small"
         value={title.lineHeight}
-        className="bg-white epilogue w-full"
+        className="!bg-auto epilogue w-full"
         onChange={(e) => setTitle({ ...title, lineHeight: e.target.value })}
       />
-      <p className="text-xs text-[#666] my-3">Font Family</p>
+      <p className="text-xs text-[#666] dark:text-[#bbb] my-3">Font Family</p>
       <Select
         value={title.fontFamily}
         onChange={(e) => {
@@ -119,7 +121,7 @@ const TextTab = ({ title, setTitle, name }) => {
           </MenuItem>
         ))}
       </Select>
-      <p className="text-xs text-[#666] my-3">Font Weight</p>
+      <p className="text-xs text-[#666] dark:text-[#bbb] my-3">Font Weight</p>
       <Select
         value={title.fontWeight}
         onChange={(e) => {
@@ -139,17 +141,17 @@ const TextTab = ({ title, setTitle, name }) => {
         ))}
       </Select>
 
-      <p className="text-xs text-[#666] my-3">Color</p>
+      <p className="text-xs text-[#666] dark:text-[#bbb] my-3">Color</p>
       <Btn>
         <div
-          className="p-2 w-auto rounded-md border border-[#ddd] flex items-center justify-start"
+          className="p-2 w-auto rounded-md border border-[#ddd] dark:border-[#555] flex items-center justify-start"
           onClick={() => setDisplayColorPicker(true)}
         >
           <div
             className="h-[28px] w-[28px] rounded-md"
             style={{ background: color.color }}
           ></div>
-          <h3 className="text-sm uppercase font-semibold mx-2">
+          <h3 className="text-sm uppercase font-semibold mx-2 dark:text-[#fafafa]">
             {color.color}
           </h3>
         </div>

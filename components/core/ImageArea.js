@@ -134,7 +134,7 @@ const InfiniteScroll = ({ children, setChildren }) => {
         className="m-4"
         variant="outlined"
         label="Search Images"
-        className="w-full epilogue bg-white"
+        className="w-full epilogue !bg-auto"
       />
       <div className="flex items-center justify-center flex-wrap w-full h-auto mt-2">
         {data.map((data, key) => {

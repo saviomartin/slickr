@@ -149,10 +149,12 @@ const PatternPicker = ({ data, setData }) => {
 
   return (
     <div className="">
-      <h3 className="text-[#666] text-sm mb-2">Choose Background Colors:</h3>
+      <h3 className="text-[#666] dark:text-[#bbb] text-sm mb-2">
+        Choose Background Colors:
+      </h3>
       <Btn>
         <div
-          className="p-2 w-auto rounded-md border border-[#ddd] flex items-center justify-start"
+          className="p-2 w-auto rounded-md border border-[#ddd] dark:border-[#555] flex items-center justify-start"
           onClick={() =>
             setDisplayColorPickers({
               ...displayColorPickers,
@@ -164,7 +166,7 @@ const PatternPicker = ({ data, setData }) => {
             className="h-[28px] w-[28px] rounded-md"
             style={{ background: colors.color1 }}
           ></div>
-          <h3 className="text-sm uppercase font-semibold mx-2">
+          <h3 className="text-sm uppercase font-semibold mx-2 dark:text-[#fafafa]">
             {colors.color1}
           </h3>
         </div>
@@ -191,7 +193,7 @@ const PatternPicker = ({ data, setData }) => {
       )}
       <Btn className="!ml-2">
         <div
-          className="p-2 w-auto rounded-md border border-[#ddd] flex items-center justify-start"
+          className="p-2 w-auto rounded-md border border-[#ddd] dark:border-[#555] flex items-center justify-start"
           onClick={() =>
             setDisplayColorPickers({
               ...displayColorPickers,
@@ -203,7 +205,7 @@ const PatternPicker = ({ data, setData }) => {
             className="h-[28px] w-[28px] rounded-md"
             style={{ background: colors.color2 }}
           ></div>
-          <h3 className="text-sm uppercase font-semibold mx-2">
+          <h3 className="text-sm uppercase font-semibold mx-2 dark:text-[#fafafa]">
             {colors.color2}
           </h3>
         </div>
@@ -228,7 +230,9 @@ const PatternPicker = ({ data, setData }) => {
           />
         </div>
       )}
-      <h3 className="mt-4 text-sm text-[#666]">Choose Opacity:</h3>
+      <h3 className="mt-4 text-sm text-[#666] dark:text-[#bbb]">
+        Choose Opacity:
+      </h3>
       <Slider
         value={opacity}
         min={0}
@@ -253,9 +257,11 @@ const PatternPicker = ({ data, setData }) => {
         }}
         aria-labelledby="input-slider"
       />
-      <h3 className="mt-4 mb-2 text-sm text-[#666]">Choose Pattern:</h3>
+      <h3 className="mt-4 mb-2 text-sm text-[#666] dark:text-[#bbb]">
+        Choose Pattern:
+      </h3>
       <Btn onClick={(e) => setAnchorEl(e.currentTarget)}>
-        <div className="p-2 w-auto rounded-md border border-[#ddd] flex items-center justify-start">
+        <div className="p-2 w-auto rounded-md border border-[#ddd] dark:border-[#555] flex items-center justify-start">
           <div
             className="h-[28px] w-[28px] rounded-md"
             style={{
@@ -264,7 +270,7 @@ const PatternPicker = ({ data, setData }) => {
               backgroundSize: "cover",
             }}
           ></div>
-          <h3 className="text-sm capitalize font-semibold mx-2">
+          <h3 className="text-sm capitalize font-semibold mx-2 dark:text-[#fafafa]">
             {pattern.name}
           </h3>
         </div>

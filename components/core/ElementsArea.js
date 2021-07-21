@@ -128,7 +128,7 @@ const ElementsArea = ({ children, setChildren }) => {
         className="m-4"
         variant="outlined"
         label="Search Elements"
-        className="w-full epilogue bg-white"
+        className="w-full epilogue !bg-auto"
       />
 
       {isLoading && (
@@ -140,7 +140,10 @@ const ElementsArea = ({ children, setChildren }) => {
         <div className="flex items-center justify-center flex-wrap w-full h-auto mt-2">
           {data.map((data, key) => {
             return (
-              <Btn className="!bg-white !m-[5px] !p-1 !rounded-md" key={key}>
+              <Btn
+                className="!bg-white dark:!bg-[#182341] !m-1 !p-[5px] !rounded-md"
+                key={key}
+              >
                 <img
                   src={
                     data.raster_sizes.slice(-1)[0].formats.slice(-1)[0]
@@ -182,7 +185,7 @@ const ElementsArea = ({ children, setChildren }) => {
         <div className="mt-2">
           {elements.map((data, key) => (
             <Btn
-              className="!bg-white !rounded-md !p-2 !block !m-2 !my-3"
+              className="!bg-white dark:!bg-[#182341] !rounded-md !p-2 !block !m-2 !my-3"
               onClick={() => changePack(data.value)}
             >
               <img
@@ -191,11 +194,11 @@ const ElementsArea = ({ children, setChildren }) => {
                   .toLowerCase()}.png`}
                 alt={data.name}
               />
-              <div className="flex justify-between items-center border-t border-[#ddd] pt-2">
-                <h3 className="text-[16px] capitalize font-bold">
+              <div className="flex justify-between items-center border-t border-[#ddd] dark:border-[#555] pt-2">
+                <h3 className="text-[16px] capitalize font-bold dark:text-[#fafafa]">
                   {data.name}
                 </h3>
-                <h3 className="text-sm text-[#666] flex items-center capitalize">
+                <h3 className="text-sm text-[#666] flex items-center capitalize dark:text-[#aaa]">
                   See more <FiChevronRight />
                 </h3>
               </div>

@@ -77,8 +77,10 @@ const SavedArea = ({ children, setChildren }) => {
     <div className="w-full h-full flex items-center justify-start flex-col text-[#222]">
       {bookmarks.length > 0 && (
         <>
-          <h1 className="font-bold text-xl mt-3">Your BookMarks</h1>
-          <p className="text-sm text-[#555] mb-3 text-center">
+          <h1 className="font-bold text-xl mt-3 dark:text-[#fafafa]">
+            Your BookMarks
+          </h1>
+          <p className="text-sm text-[#555] dark:text-[#aaa] mb-3 text-center">
             Bookmark an element or image to see it here
           </p>
         </>
@@ -86,7 +88,10 @@ const SavedArea = ({ children, setChildren }) => {
       <div className="flex w-full h-full flex-wrap items-start content-start justify-center">
         {bookmarks.map((data, key) => {
           return (
-            <Btn className="!bg-white !m-1 !p-1 !rounded-[3px]" key={key}>
+            <Btn
+              className="!bg-white dark:!bg-[#182341] !m-1 !p-1 !rounded-[3px]"
+              key={key}
+            >
               <img
                 src={data.src}
                 className="image"

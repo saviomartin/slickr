@@ -185,7 +185,7 @@ const Editor = ({ darkMode, setDarkMode, data, setData, children, code }) => {
   }, [data]);
 
   return (
-    <div className="h-full w-full lg:w-[67.5%] xl:w-[67.5%] relative bg-white flex items-center justify-center flex-col">
+    <div className="h-full w-full lg:w-[67.5%] xl:w-[67.5%] relative bg-white dark:bg-[#0E102D] flex items-center justify-center flex-col">
       <div
         id="cover_image_download"
         className="absolute z-[-10] cover_image"
@@ -196,13 +196,13 @@ const Editor = ({ darkMode, setDarkMode, data, setData, children, code }) => {
         xlink="http://www.w3.org/1999/xlink"
         className="absolute z-[-10]"
       ></svg>
-      <div className="w-full bg-[#EFF1FE] h-[70px] relative border-b border-[#564BB330] flex items-center justify-between px-3">
+      <div className="w-full bg-[#EFF1FE] dark:bg-[#0E102D] h-[70px] relative border-b border-[#564BB330] flex items-center justify-between px-3">
         <TextField
           label="File Name"
           variant="outlined"
           size="small"
           value={fileName}
-          className="bg-white epilogue"
+          className="!bg-auto epilogue"
           onChange={(e) => setFileName(e.target.value)}
         />
         <div className="flex">
@@ -212,7 +212,7 @@ const Editor = ({ darkMode, setDarkMode, data, setData, children, code }) => {
               setDarkMode(!darkMode);
             }}
           >
-            <div className="px-2 rounded-md p-[8px] flex items-center justify-center text-[#222]">
+            <div className="px-2 rounded-md p-[8px] flex items-center justify-center text-[#222] dark:text-[#ccc]">
               {darkMode ? (
                 <FiMoon className="text-xl" />
               ) : (
@@ -245,7 +245,7 @@ const Editor = ({ darkMode, setDarkMode, data, setData, children, code }) => {
           >
             <MenuItem>
               <div
-                className="w-[200px] flex items-center justify-between"
+                className="w-[200px] flex items-center justify-between mx-4 my-2"
                 onClick={downloadAsPng}
               >
                 <div className="relative">
@@ -263,7 +263,7 @@ const Editor = ({ darkMode, setDarkMode, data, setData, children, code }) => {
             <div className="w-[90%] h-[1px] bg-[#ccc] mx-[5%] rounded-md my-1"></div>
             <MenuItem>
               <div
-                className="w-[200px] flex items-center justify-between"
+                className="w-[200px] flex items-center justify-between mx-4 my-2"
                 onClick={downloadAsJpg}
               >
                 <div className="relative">
@@ -276,7 +276,7 @@ const Editor = ({ darkMode, setDarkMode, data, setData, children, code }) => {
             <div className="w-[90%] h-[1px] bg-[#ccc] mx-[5%] rounded-md my-1"></div>
             <MenuItem>
               <div
-                className="w-[200px] flex items-center justify-between"
+                className="w-[200px] flex items-center justify-between mx-4 my-2"
                 onClick={downloadAsSvg}
               >
                 <div className="relative">
@@ -294,7 +294,7 @@ const Editor = ({ darkMode, setDarkMode, data, setData, children, code }) => {
         <div className="scale-[.85]">
           <div
             id="cover_image_preview"
-            className="relative cover_image bg-blue-700 overflow-hidden select-none border border-[#ddd]"
+            className="relative cover_image bg-blue-700 overflow-hidden select-none"
           >
             {children.map((child, key) => (
               <Rnd key={key}>{child.component}</Rnd>
