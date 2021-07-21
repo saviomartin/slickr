@@ -242,6 +242,7 @@ const Editor = ({ darkMode, setDarkMode, data, setData, children, code }) => {
             anchorEl={anchorEl}
             open={Boolean(anchorEl)}
             onClose={() => setAnchorEl(null)}
+            className="menu"
           >
             <MenuItem>
               <div

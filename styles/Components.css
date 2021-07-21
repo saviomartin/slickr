@@ -104,3 +104,18 @@
   background: #182341;
   color: #fff;
 }
+
+/* Material Design Fix */
+ul.MuiList-root.MuiMenu-list.MuiList-padding {
+  display: flex;
+  flex-direction: column;
+}
+ul.MuiList-root.MuiMenu-list.MuiList-padding li {
+  padding: 5px;
+  padding-left: 20px;
+  justify-content: flex-start;
+}
+.menu ul.MuiList-root.MuiMenu-list.MuiList-padding li {
+  padding-left: 0px;
+  padding: 0px;
+}
