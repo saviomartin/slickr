@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 // icons
-import { FiDownload, FiMoon, FiSun } from "react-icons/fi";
+import { FiDownload, FiMoon, FiShare2, FiSun } from "react-icons/fi";
 
 // material btn
 import { Btn, Rnd } from "..";
@@ -15,6 +15,9 @@ import html2canvas from "html2canvas";
 
 // react hot toast
 import toast from "react-hot-toast";
+
+// axios
+import axios from "axios";
 
 const Editor = ({ darkMode, setDarkMode, data, setData, children, code }) => {
   const [anchorEl, setAnchorEl] = useState(null); // for menu
@@ -184,6 +187,40 @@ const Editor = ({ darkMode, setDarkMode, data, setData, children, code }) => {
     }
   }, [data]);
 
+  const getShareImage = async () => {
+    addInnerHtml();
+
+    let base64Image;
+
+    await html2canvas(coverImage, {
+      useCORS: true,
+    }).then(function (canvas) {
+      base64Image = canvas.toDataURL("image/png").slice(22); // convert to dataURL
+    });
+
+    // upload the base64
+    const formData = new FormData();
+    formData.append("image", base64Image);
+    formData.append("name", fileName);
+    formData.append("key", process.env.NEXT_PUBLIC_IMGBB_STORAGE_KEY);
+
+    const upload = axios
+      .post("https://api.imgbb.com/1/upload", formData)
+      .then((data) => {
+        navigator.clipboard.writeText(data.data.data.url);
+        document.querySelector("#share").innerHTML = "Sync Again";
+        document.querySelector("#shareContainer").style.background =
+          "transparent";
+        document.querySelector("#shareContainer").style.color = "#fff";
+      });
+
+    toast.promise(upload, {
+      loading: "Creating Shareable Image...",
+      success: "Image URL copied to clipboard",
+      error: "Error Creating Shareable Image",
+    });
+  };
+
   return (
     <div className="h-full w-full lg:w-[67.5%] xl:w-[67.5%] relative bg-white dark:bg-[#0E102D] flex items-center justify-center flex-col">
       <div
@@ -220,7 +257,17 @@ const Editor = ({ darkMode, setDarkMode, data, setData, children, code }) => {
               )}
             </div>
           </Btn>
-          <div className="ml-1"></div>
+          <Btn className="!mx-1 !mr-[5px]" onClick={getShareImage}>
+            <div className="p-[2px] bg-app-graient-to-l rounded-md flex items-center justify-center capitalize">
+              <div
+                className="bg-white dark:bg-[#0E102D] px-4 p-[6px] flex items-center justify-center rounded-md dark:text-[#fafafa]"
+                id="shareContainer"
+              >
+                <span id="share">Share Image</span>
+                <FiShare2 className="text-xl ml-2" />
+              </div>
+            </div>
+          </Btn>
           <Btn onClick={(e) => setAnchorEl(e.currentTarget)}>
             <div className="px-4 p-[8px] text-white bg-app-graient-to-l rounded-md flex items-center justify-center capitalize">
               Download
