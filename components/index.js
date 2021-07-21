@@ -7,6 +7,7 @@ export { default as UploadArea } from "./core/UploadArea";
 export { default as SavedArea } from "./core/SavedArea";
 export { default as ElementsArea } from "./core/ElementsArea";
 export { default as NotFound } from "./core/NotFound";
+export { default as Loader } from "./core/Loader";
 export { default as Rnd } from "./core/Rnd";
 
 // utils

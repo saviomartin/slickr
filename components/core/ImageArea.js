@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 
 import { TextField } from "@material-ui/core"; // material-ui
-import { Btn } from "..";
+import { Btn, Loader } from "..";
 
 // icons
 import { FiBookmark } from "react-icons/fi";
@@ -162,7 +162,7 @@ const InfiniteScroll = ({ children, setChildren }) => {
         })}
       </div>
       <div className="loading" ref={loader}>
-        <h2>Load More</h2>
+        <Loader />
       </div>
     </div>
   );
