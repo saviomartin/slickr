@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios"; // axios
 import toast from "react-hot-toast"; // toast
 import Btn from "../utils/Btn"; // material-ui
+import NotFound from "./NotFound";
 
 const UploadArea = ({ children, setChildren }) => {
   const [images, setImages] = useState([]);
@@ -128,10 +129,16 @@ const UploadArea = ({ children, setChildren }) => {
               src={data.data}
               className="image"
               alt={data.name}
-              className="max-h-[145px] max-w-[145px] rounded-[3px]"
+              className="h-[130px] w-[145px] rounded-[3px]"
             />
           </Btn>
         ))}
+        {images.length === 0 && (
+          <NotFound
+            heading="No Uploads Found"
+            description="Please Upload an image to see it here"
+          />
+        )}
       </div>
     </div>
   );

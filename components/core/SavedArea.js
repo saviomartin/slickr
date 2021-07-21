@@ -6,6 +6,7 @@ import { FiBookmark } from "react-icons/fi";
 
 // material icons
 import Btn from "../utils/Btn";
+import NotFound from "./NotFound";
 
 const SavedArea = ({ children, setChildren }) => {
   const [bookmarks, setBookmarks] = useState([]); // bookmarks
@@ -74,17 +75,24 @@ const SavedArea = ({ children, setChildren }) => {
 
   return (
     <div className="w-full h-full flex items-center justify-start flex-col text-[#222]">
-      <h1 className="font-bold text-xl my-3">Your BookMarks</h1>
+      {bookmarks.length > 0 && (
+        <>
+          <h1 className="font-bold text-xl mt-3">Your BookMarks</h1>
+          <p className="text-sm text-[#555] mb-3 text-center">
+            Bookmark an element or image to see it here
+          </p>
+        </>
+      )}
       <div className="flex w-full h-full flex-wrap items-start content-start justify-center">
         {bookmarks.map((data, key) => {
           return (
-            <Btn className="bg-white !m-1" key={key}>
+            <Btn className="!bg-white !m-1 !p-1 !rounded-[3px]" key={key}>
               <img
                 src={data.src}
                 className="image"
                 alt="An Image"
                 onClick={() => addImage(data.src)}
-                className="h-[145px] w-[145px] rounded-[3px]"
+                className="h-[85px] w-[85px] rounded-[3px]"
               />
               <div
                 className="text-[#F5BA31] duration-500 text-lg capitalize rounded-md font-semibold flex items-center justify-center menu-animation-hover poppins dark:bg-[#1F1F1F] border border-transparent dark:border-[#555] absolute top-1 right-1"
@@ -99,6 +107,14 @@ const SavedArea = ({ children, setChildren }) => {
             </Btn>
           );
         })}
+        <div className="mt-6">
+          {bookmarks.length === 0 && (
+            <NotFound
+              heading="No Bookmarks Found"
+              description="Bookmark images or elements to see it here."
+            />
+          )}
+        </div>
       </div>
     </div>
   );
