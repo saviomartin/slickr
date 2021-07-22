@@ -276,7 +276,7 @@ const Editor = ({ darkMode, setDarkMode, data, setData, children, code }) => {
           <Btn className="!mx-1 !mr-[5px]" onClick={getShareImage}>
             <div className="p-[2px] bg-app-graient-to-l rounded-md flex items-center justify-center capitalize">
               <div
-                className="bg-white dark:bg-[#0E102D] px-4 p-[6px] flex items-center justify-center rounded-md dark:text-[#fafafa]"
+                className="bg-[#EFF1FE] dark:bg-[#0E102D] px-4 p-[6px] flex items-center justify-center rounded-md dark:text-[#fafafa]"
                 id="shareContainer"
               >
                 <span id="share">Share Image</span>
