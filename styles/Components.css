@@ -22,6 +22,10 @@
 .dark .bg-app-graient-to-l {
   background: linear-gradient(to right, #9257fe, #52fdbc);
 }
+.text-gradient {
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
 
 /* Custom file input */
 .custom-file-input {

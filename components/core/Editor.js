@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 // components
-import { AppHeader, Rnd } from "..";
+import { AppHeader, Rnd, AppFooter } from "..";
 
 // html2canvas for downloading images
 import html2canvas from "html2canvas";
@@ -248,7 +248,8 @@ const Editor = ({ darkMode, setDarkMode, data, setData, children, code }) => {
         xlink="http://www.w3.org/1999/xlink"
         className="absolute z-[-10]"
       ></svg>
-      <AppHeader {...AppHeaderProps} />
+
+      <AppHeader {...AppHeaderProps} darkMode={darkMode} />
 
       <div className="h-full overflow-hidden w-full relative flex items-center justify-center container">
         <div className="scale-[.95] lg:scale-[.85]">
@@ -263,6 +264,8 @@ const Editor = ({ darkMode, setDarkMode, data, setData, children, code }) => {
           </div>
         </div>
       </div>
+
+      <AppFooter />
     </div>
   );
 };
