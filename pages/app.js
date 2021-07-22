@@ -1,20 +1,14 @@
 import React, { useEffect, useState } from "react";
 
-// Components
-import { Rnd, LeftBar, Editor } from "../components";
-
-// helpers
-import { getTemplate } from "../components/helper";
-
-import queryString from "query-string"; // parse query string
+import { Rnd, LeftBar, Editor } from "../components"; // Components
+import { getTemplate } from "../components/helper"; // helpers
 
 const app = (props) => {
   const [data, setData] = useState();
   const [children, setChildren] = useState([]); // default state
 
-  useEffect(async () => {
-    const { template } = queryString.parse(window.location.search);
-    await setData(getTemplate(template));
+  useEffect(() => {
+    setData(getTemplate());
   }, []);
 
   const Code = () => {
