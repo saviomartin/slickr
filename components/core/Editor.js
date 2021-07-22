@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 // icons
-import { FiDownload, FiMoon, FiShare2, FiSun } from "react-icons/fi";
+import { FiDownload, FiMenu, FiMoon, FiShare2, FiSun } from "react-icons/fi";
 
 // material btn
 import { Btn, Rnd } from "..";
@@ -221,6 +221,14 @@ const Editor = ({ darkMode, setDarkMode, data, setData, children, code }) => {
     });
   };
 
+  const showLeftBar = () => {
+    if (document.querySelector("#leftBar").style.left === "0%") {
+      document.querySelector("#leftBar").style.left = "-100%";
+    } else {
+      document.querySelector("#leftBar").style.left = "0%";
+    }
+  };
+
   return (
     <div className="h-full w-full lg:w-[67.5%] xl:w-[67.5%] relative bg-white dark:bg-[#0E102D] flex items-center justify-center flex-col">
       <div
@@ -233,16 +241,23 @@ const Editor = ({ darkMode, setDarkMode, data, setData, children, code }) => {
         xlink="http://www.w3.org/1999/xlink"
         className="absolute z-[-10]"
       ></svg>
-      <div className="w-full bg-[#EFF1FE] dark:bg-[#0E102D] h-[70px] relative border-b border-[#564BB330] flex items-center justify-between px-3">
-        <TextField
-          label="File Name"
-          variant="outlined"
-          size="small"
-          value={fileName}
-          className="bg-white dark:bg-[#0E102D] epilogue"
-          onChange={(e) => setFileName(e.target.value)}
-        />
-        <div className="flex">
+      <div className="w-full bg-[#EFF1FE] dark:bg-[#0E102D] h-auto py-3 relative border-b border-[#564BB330] flex items-center justify-between px-3 flex-col lg:flex-row xl:flex-row">
+        <div className="flex justify-between w-auto">
+          <TextField
+            label="File Name"
+            variant="outlined"
+            size="small"
+            value={fileName}
+            className="bg-white dark:bg-[#0E102D] epilogue"
+            onChange={(e) => setFileName(e.target.value)}
+          />
+          <Btn onClick={showLeftBar} className="lg:!hidden xl:!hidden">
+            <div className="px-2 rounded-md p-[8px] flex items-center justify-center text-[#222] dark:text-[#ccc]">
+              <FiMenu className="text-xl" />
+            </div>
+          </Btn>
+        </div>
+        <div className="flex mt-2 lg:mt-0 xl:mt-0 w-auto">
           <Btn
             onClick={() => {
               window.localStorage.setItem("darkMode", !darkMode);
@@ -257,6 +272,7 @@ const Editor = ({ darkMode, setDarkMode, data, setData, children, code }) => {
               )}
             </div>
           </Btn>
+
           <Btn className="!mx-1 !mr-[5px]" onClick={getShareImage}>
             <div className="p-[2px] bg-app-graient-to-l rounded-md flex items-center justify-center capitalize">
               <div
@@ -339,7 +355,7 @@ const Editor = ({ darkMode, setDarkMode, data, setData, children, code }) => {
       </div>
 
       <div className="h-full overflow-hidden w-full relative flex items-center justify-center container">
-        <div className="scale-[.85]">
+        <div className="scale-[.95] lg:scale-[.85]">
           <div
             id="cover_image_preview"
             className="relative cover_image bg-blue-700 overflow-hidden select-none"

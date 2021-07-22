@@ -16,7 +16,7 @@ import { EditArea, ImageArea, UploadArea, SavedArea, ElementsArea } from "..";
 
 const TabItem = ({ tab }) => {
   return (
-    <div className="w-[85px] h-[60px] flex flex-col items-center justify-center text-[#111] dark:text-[#fafafa]">
+    <div className="w-[65px] h-[50px] lg:w-[85px] lg:h-[60px] flex flex-col items-center justify-center text-[#111] dark:text-[#fafafa]">
       {tab.icon}
       <h3 className="text-xs font-medium lowercase">{tab.name}</h3>
     </div>
@@ -36,24 +36,24 @@ const LeftBar = ({ data, setData, children, setChildren }) => {
   const allTabs = [
     {
       name: "home",
-      icon: <FiEdit className="text-xl mb-1" />,
+      icon: <FiEdit className="text-lg lg:text-xl xl:text-xl mb-1" />,
     },
     {
       name: "elements",
-      icon: <IoShapesOutline className="text-xl mb-1" />,
+      icon: <IoShapesOutline className="text-lg lg:text-xl xl:text-xl mb-1" />,
     },
     {
       name: "uploads",
-      icon: <FiUploadCloud className="text-xl mb-1" />,
+      icon: <FiUploadCloud className="text-lg lg:text-xl xl:text-xl mb-1" />,
     },
 
     {
       name: "images",
-      icon: <BiImageAdd className="text-2xl mb-[3px]" />,
+      icon: <BiImageAdd className="text-xl lg:text-2xl xl:text-2xl mb-[3px]" />,
     },
     {
       name: "saved",
-      icon: <FiFolder className="text-xl mb-1" />,
+      icon: <FiFolder className="text-lg lg:text-xl xl:text-xl mb-1" />,
     },
   ];
 
@@ -68,8 +68,11 @@ const LeftBar = ({ data, setData, children, setChildren }) => {
     "https://twitter.com/intent/tweet?text=Checkout%20slickr.vercel.app%20by%20@saviomartin7.%20The%20most%20powerful%20way%20to%20create%20awesome%20cover%20images%20for%20your%20@hashnode%20blog%20🔥";
 
   return (
-    <div className="h-full absolute lg:relative xl:relative w-10/12 lg:w-[32.5%] xl:w-[32.5%] flex bg-[#F1F5FB] dark:bg-[#273250] border-r border-[#564BB330] white-light-shadow">
-      <div className="bg-gradient h-full w-[10px] bg-gradient-to-b"></div>
+    <div
+      className="h-full absolute lg:relative xl:relative w-9/12 lg:w-[32.5%] xl:w-[32.5%] flex bg-[#F1F5FB] dark:bg-[#273250] border-r border-[#564BB330] white-light-shadow transition-05 top-0 left-[-100%] xl:left-0 lg:left-0 z-10"
+      id="leftBar"
+    >
+      <div className="bg-gradient h-full w-[5px] lg:w-[10px] xl:w-[10px] bg-gradient-to-b"></div>
       <div className="h-full bg-[#fff] border-r border-[#564BB330] dark:border-[#fafafa20] white-light-shadow py-3 flex flex-col items-center justify-between dark:bg-[#182341]">
         <Tabs
           value={value}
@@ -87,10 +90,10 @@ const LeftBar = ({ data, setData, children, setChildren }) => {
             />
           ))}
         </Tabs>
-        <div className="w-[85px] h-[60px] flex flex-col items-center justify-center">
+        <div className="w-[65px] h-[50px] lg:w-[85px] lg:h-[60px] flex flex-col items-center justify-center">
           <Btn href={twitterShareLink}>
             <div className="w-[70px] h-[60px] bg-[#0F84B425] rounded-md flex flex-col items-center justify-center text-[#0F84B4]">
-              <FiTwitter className="text-xl mb-1" />
+              <FiTwitter className="text-lg lg:text-xl xl:text-xl mb-1" />
               <h3 className="text-xs font-medium lowercase">Share</h3>
             </div>
           </Btn>
