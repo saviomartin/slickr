@@ -21,6 +21,7 @@ export { default as PatternPicker } from "./utils/PatternPicker";
 export { default as IconsPicker } from "./utils/IconsPicker";
 export { default as BgImagePicker } from "./utils/BgImagePicker";
 export { default as TextTab } from "./utils/TextTab";
+export { default as StylishBtn } from "./utils/StylishBtn";
 
 // NoSsr
 export { default as NoSsr } from "./NoSSr";

@@ -1,83 +1,52 @@
-import Head from "next/head";
-import { useEffect } from "react";
+import React from "react";
+import { FiGithub, FiZap } from "react-icons/fi";
+import { Btn, StylishBtn } from "../components";
 
-export default function Home() {
+const index = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{" "}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
-
-        <p className="mt-3 text-2xl">
-          Get started by editing{" "}
-          <code className="p-3 font-mono text-lg bg-gray-100 rounded-md">
-            pages/index.js
-          </code>
-        </p>
-
-        <div className="flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+    <div className="home h-screen w-full overflow-hidden flex items-center justify-center">
+      <div className="h-[95%] w-[95%] rounded-md glassmorphism border border-[#1CC8EE85] flex">
+        <div className="w-6/12 h-full flex flex-col items-start justify-center pl-8">
+          <h1 className="font-bold text-[2.55em] leading-[1.2em] text-[#14142B]">
+            The most powerful cover image designer for your {""}
+            <div className="flex items-center">
+              <a
+                href="https://hashnode.com/"
+                className="text-gradient bg-app-graient-to-l relative"
+              >
+                hashnode blog
+                <div className="absolute bottom-1 left-0 bg-app-graient-to-l h-[3px] w-full"></div>
+              </a>
+              <img
+                src="/assets/hashnode-logo.png"
+                alt="Logo"
+                className="w-[40px] h-[40px] ml-2"
+              />
+            </div>
+          </h1>
+          <p className="text-[#6E7191] mt-4">
+            Enjoy creating cover image for your hashnode blog like never before,
+            get started in seconds 🎉
+          </p>
+          <div className="flex mt-3">
+            <StylishBtn
+              text="Try Now"
+              icon1={<FiZap className="text-xl ml-2" />}
+              icon={<FiZap className="text-xl ml-2 text-[#fff]" />}
+            />
+            <div className="ml-1">
+              <StylishBtn
+                text="50 Stars"
+                icon1={<FiGithub className="text-xl ml-2" />}
+                icon={<FiGithub className="text-xl ml-2 text-[#fff]" />}
+              />
+            </div>
+          </div>
         </div>
-      </main>
-
-      <footer className="flex items-center justify-center w-full h-24 border-t">
-        <a
-          className="flex items-center justify-center"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <img src="/vercel.svg" alt="Vercel Logo" className="h-4 ml-2" />
-        </a>
-      </footer>
+        <div className="w-6/12 h-full"></div>
+      </div>
     </div>
   );
-}
+};
+
+export default index;

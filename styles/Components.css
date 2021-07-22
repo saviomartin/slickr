@@ -126,3 +126,14 @@ ul.MuiList-root.MuiMenu-list.MuiList-padding li {
   padding-left: 0px;
   padding: 0px;
 }
+
+/* Home Page */
+.home {
+  background: url("/assets/bg.png") center, #f7f7fc;
+  background-size: contain;
+}
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(3px);
+  box-shadow: 0px 32px 64px 0px #11111114;
+}
