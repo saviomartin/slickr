@@ -1,8 +1,29 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { FiGithub } from "react-icons/fi";
 import Btn from "../utils/Btn";
 
 const AppFooter = () => {
+  const [starCount, setStarCount] = useState(1);
+
+  const fetchStarCount = () => {
+    axios
+      .get("https://api.github.com/repos/saviomartin/slickr", {
+        headers: {},
+      })
+      .then((response) => {
+        setStarCount(response.data.stargazers_count);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  // fetch on load once
+  useEffect(() => {
+    fetchStarCount();
+  }, []);
+
   return (
     <div className="w-full py-1 px-5 flex items-center justify-between absolute bottom-0 left-0">
       <h1 className="text-[16px] font-normal dark:text-[#fafafa]">
@@ -21,7 +42,7 @@ const AppFooter = () => {
             href="/"
             className="ml-1 font-bold text-gradient bg-app-graient-to-l border-[#ae64db] dark:border-[#52fdbc] capitalize"
           >
-            59 Stars
+            {starCount} Stars
           </a>
         </h1>
       </Btn>
