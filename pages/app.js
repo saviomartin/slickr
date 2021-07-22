@@ -12,13 +12,13 @@ const app = (props) => {
   const [data, setData] = useState();
   const [children, setChildren] = useState([]); // default state
 
-  useEffect(() => {
+  useEffect(async () => {
     const { template } = queryString.parse(window.location.search);
-    setData(getTemplate(template));
+    await setData(getTemplate(template));
   }, []);
 
-  const code = data && {
-    value: (
+  const Code = () => {
+    return (
       <>
         <Rnd width={650} x={37} y={166}>
           <h1
@@ -58,7 +58,7 @@ const app = (props) => {
           />
         </Rnd>
       </>
-    ),
+    );
   };
 
   return (
@@ -77,7 +77,7 @@ const app = (props) => {
             data={data}
             setData={setData}
             children={children}
-            code={code}
+            Code={Code}
           />
         </>
       ) : (

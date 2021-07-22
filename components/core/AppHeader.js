@@ -24,7 +24,7 @@ const AppHeader = ({
   downloadAsSvg,
 }) => {
   return (
-    <div className="w-full bg-[#EFF1FE] dark:bg-[#0E102D] h-auto py-3 relative border-b border-[#564BB330] flex items-center justify-between px-3 flex-col lg:flex-row xl:flex-row">
+    <div className="w-full bg-[#F1F5FB] dark:bg-[#0E102D] h-auto py-3 relative border-b border-[#564BB330] flex items-center justify-between px-3 flex-col lg:flex-row xl:flex-row">
       <div className="flex justify-between w-auto">
         <TextField
           label="File Name"

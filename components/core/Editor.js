@@ -12,7 +12,7 @@ import toast from "react-hot-toast";
 // axios
 import axios from "axios";
 
-const Editor = ({ darkMode, setDarkMode, data, setData, children, code }) => {
+const Editor = ({ darkMode, setDarkMode, data, setData, children, Code }) => {
   const [anchorEl, setAnchorEl] = useState(null); // for menu
   const [fileName, setFileName] = useState("Untitled Design");
 
@@ -123,7 +123,7 @@ const Editor = ({ darkMode, setDarkMode, data, setData, children, code }) => {
 
       function svgDataURL(svg) {
         var svgAsXML = new XMLSerializer().serializeToString(svg);
-        return "data:image/svg+xml," + encodeURIComponent(svgAsXML);
+        return "data:image/svg+xml," + enCodeURIComponent(svgAsXML);
       }
 
       const a = document.createElement("a");
@@ -260,7 +260,7 @@ const Editor = ({ darkMode, setDarkMode, data, setData, children, code }) => {
             {children.map((child, key) => (
               <Rnd key={key}>{child.component}</Rnd>
             ))}
-            {code.value}
+            {Code()}
           </div>
         </div>
       </div>

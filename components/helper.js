@@ -1,5 +1,5 @@
 export const getTemplate = (id) => {
-  const template1 = {
+  const template = {
     title: {
       fontSize: 72,
       fontFamily: "Raleway",
@@ -28,39 +28,6 @@ export const getTemplate = (id) => {
       fontSize: 125,
     },
   };
-  const template2 = {
-    title: {
-      fontSize: 72,
-      fontFamily: "Raleway",
-      color: "#fff",
-      fontWeight: 700,
-      text: "My Awesome Post Title Goes csdcasdsa",
-      lineHeight: 80,
-    },
-    tagline: {
-      fontSize: 35,
-      fontFamily: "Playfair-Display",
-      color: "#ddd",
-      fontWeight: 300,
-      text: "written by @saviomartin",
-      lineHeight: 60,
-    },
-    background: {
-      type: "gradient",
-      color1: "#FF00CC",
-      color2: "#333399",
-      direction: 105,
-    },
-    icon: {
-      name: "react",
-      color: "#4A90E2",
-      fontSize: 125,
-    },
-  };
 
-  if (id === "1") {
-    return template1;
-  } else {
-    return template2;
-  }
+  return template;
 };
