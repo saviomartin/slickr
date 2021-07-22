@@ -9,6 +9,7 @@ export { default as ElementsArea } from "./core/ElementsArea";
 export { default as NotFound } from "./core/NotFound";
 export { default as Loader } from "./core/Loader";
 export { default as Rnd } from "./core/Rnd";
+export { default as AppHeader } from "./core/AppHeader";
 
 // utils
 export { default as Btn } from "./utils/Btn";
