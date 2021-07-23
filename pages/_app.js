@@ -19,6 +19,9 @@ import Router from "next/router";
 // showing progress using nprogress
 import NProgress from "nprogress";
 
+// components
+import { MetaTags } from "../components";
+
 // clerk frontend API
 const clerkFrontendAPI = process.env.NEXT_PUBLIC_CLERK_FRONTEND_API;
 
@@ -70,6 +73,7 @@ function MyApp({ Component, pageProps }) {
           darkMode ? "dark text-white" : "light"
         }"`}
       >
+        <MetaTags />
         <Toaster position="bottom-right" reverseOrder={false} />
         {publicPages.includes(router.pathname) ? (
           <Component {...pageProps} {...props} />

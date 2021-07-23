@@ -11,6 +11,7 @@ export { default as Loader } from "./core/Loader";
 export { default as Rnd } from "./core/Rnd";
 export { default as AppHeader } from "./core/AppHeader";
 export { default as AppFooter } from "./core/AppFooter";
+export { default as MetaTags } from "./core/MetaTags";
 export { default as Header } from "./core/Header";
 
 // utils
