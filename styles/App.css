@@ -4,6 +4,7 @@
 @import url(./Fonts.css);
 @import url(./Components.css);
 @import url(./Loder.css);
+@import url(./SignIn.css);
 
 * {
   margin: 0;
