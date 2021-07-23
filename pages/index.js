@@ -9,9 +9,6 @@ import { StylishBtn, Header } from "../components";
 // next js
 import Link from "next/link";
 
-// clerk
-import { SignedIn, SignedOut } from "@clerk/clerk-react";
-
 const index = () => {
   return (
     <div className="home h-screen w-full overflow-hidden flex items-center justify-center">
@@ -39,8 +36,6 @@ const index = () => {
             <p className="text-[#6E7191] mt-4">
               Enjoy creating cover image for your hashnode blog like never
               before, get started in seconds 🎉
-              <SignedIn>Signed In</SignedIn>
-              <SignedOut>Signed Out</SignedOut>
             </p>
             <div className="flex mt-3">
               <Link href="/app">
