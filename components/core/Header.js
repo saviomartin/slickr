@@ -1,7 +1,11 @@
 import Link from "next/link";
+
+// clerk items
 import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
+
+// icons
 import { FiArrowRight } from "react-icons/fi";
-import { StylishBtn } from "..";
+import { StylishBtn } from ".."; // components
 
 const Header = () => (
   <header className="w-full flex items-center justify-between p-3 pr-[2rem] bg-[#fff] border-b border-[#1CC8EE85] rounded-t-md">

@@ -1,9 +1,16 @@
 import React from "react";
+
+// icons
 import { FiGithub, FiZap } from "react-icons/fi";
-import { StylishBtn } from "../components";
+
+// components
+import { StylishBtn, Header } from "../components";
+
+// next js
 import Link from "next/link";
+
+// clerk
 import { SignedIn, SignedOut } from "@clerk/clerk-react";
-import Header from "../components/core/Header";
 
 const index = () => {
   return (
