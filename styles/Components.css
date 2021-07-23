@@ -141,3 +141,11 @@ ul.MuiList-root.MuiMenu-list.MuiList-padding li {
 #nprogress .bar {
   background: linear-gradient(to left, #2c3c96, #564bb3, #ae64db);
 }
+
+/* Position trackers */
+.position-tracker {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

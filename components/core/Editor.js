@@ -251,6 +251,12 @@ const Editor = ({ darkMode, setDarkMode, data, setData, children, Code }) => {
               <Rnd key={key}>{child.component}</Rnd>
             ))}
             {Code()}
+            <div className="w-full py-[30px] z-[0] opacity-0 hover:opacity-100 position-tracker">
+              <div className="w-full h-[3px] bg-red-500"></div>
+            </div>
+            <div className="h-full px-[30px] z-[0] opacity-0 hover:opacity-100 position-tracker">
+              <div className="w-[3px] h-full bg-red-500"></div>
+            </div>
           </div>
         </div>
       </div>
