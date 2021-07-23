@@ -14,6 +14,8 @@ import Btn from "../utils/Btn";
 // areas
 import { EditArea, ImageArea, UploadArea, SavedArea, ElementsArea } from "..";
 
+import Link from "next/link"; // link
+
 const TabItem = ({ tab }) => {
   return (
     <div className="w-[65px] h-[50px] lg:w-[85px] lg:h-[60px] flex flex-col items-center justify-center text-[#111] dark:text-[#fafafa]">
@@ -74,22 +76,35 @@ const LeftBar = ({ data, setData, children, setChildren }) => {
     >
       <div className="bg-gradient h-full w-[5px] lg:w-[10px] xl:w-[10px] bg-gradient-to-b"></div>
       <div className="h-full bg-[#fff] border-r border-[#564BB330] dark:border-[#fafafa20] white-light-shadow py-3 flex flex-col items-center justify-between dark:bg-[#182341]">
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          indicatorColor="primary"
-          orientation="vertical"
-          variant="scrollable"
-        >
-          {allTabs.map((tab, key) => (
-            <Tab
-              label={<TabItem tab={tab} />}
-              value={tab.name}
-              key={key}
-              className="!p-0 !m-0 !min-w-0 !min-h-0"
-            />
-          ))}
-        </Tabs>
+        <div className="w-full flex flex-col h-auto items-center justify-center">
+          <Link href="/">
+            <a>
+              <img
+                src="/assets/logo.png"
+                alt="Logo"
+                height="50"
+                width="50"
+                className="mb-3 mt-3"
+              />
+            </a>
+          </Link>
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            indicatorColor="primary"
+            orientation="vertical"
+            variant="scrollable"
+          >
+            {allTabs.map((tab, key) => (
+              <Tab
+                label={<TabItem tab={tab} />}
+                value={tab.name}
+                key={key}
+                className="!p-0 !m-0 !min-w-0 !min-h-0"
+              />
+            ))}
+          </Tabs>
+        </div>
         <div className="w-[65px] h-[50px] lg:w-[85px] lg:h-[60px] flex flex-col items-center justify-center">
           <Btn href={twitterShareLink}>
             <div className="w-[70px] h-[60px] bg-[#0F84B425] rounded-md flex flex-col items-center justify-center text-[#0F84B4]">
