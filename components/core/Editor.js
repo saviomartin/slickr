@@ -161,21 +161,10 @@ const Editor = ({ darkMode, setDarkMode, data, setData, children, Code }) => {
         coverImageDownload.style.backgroundImage = `url("${data.background.src}")`;
         coverImageDownload.style.backgroundSize = "cover";
 
-        if (document.querySelector(".overlay")) {
-          document.querySelector(".overlay").style.background =
-            data.background.color;
-          document.querySelector(".overlay").style.opacity =
-            data.background.opacity;
-        } else {
-          const div = document.createElement("div");
-          div.style.height = "100%";
-          div.style.width = "100%";
-          div.classList.add("overlay");
-          div.style.background = data.background.color;
-          div.style.opacity = data.background.opacity;
-
-          coverImagePreview.appendChild(div);
-        }
+        document.querySelector(".overlay").style.background =
+          data.background.color;
+        document.querySelector(".overlay").style.opacity =
+          data.background.opacity;
       }
     }
   }, [data]);
@@ -257,6 +246,7 @@ const Editor = ({ darkMode, setDarkMode, data, setData, children, Code }) => {
             id="cover_image_preview"
             className="relative cover_image bg-blue-700 overflow-hidden select-none"
           >
+            <div className="overlay"></div>
             {children.map((child, key) => (
               <Rnd key={key}>{child.component}</Rnd>
             ))}
