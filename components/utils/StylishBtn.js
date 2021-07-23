@@ -2,10 +2,7 @@ import React from "react";
 
 const StylishBtn = ({ text, icon, icon1 }) => {
   return (
-    <a
-      href="#_"
-      class="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-indigo-600 transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 group border border-indigo-600"
-    >
+    <div class="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-indigo-600 transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 group border border-indigo-600">
       <span class="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-indigo-600 group-hover:h-full"></span>
       <span class="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12">
         {icon1}
@@ -16,7 +13,7 @@ const StylishBtn = ({ text, icon, icon1 }) => {
       <span class="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">
         {text}
       </span>
-    </a>
+    </div>
   );
 };
 

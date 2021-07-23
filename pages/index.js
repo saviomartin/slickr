@@ -1,6 +1,7 @@
 import React from "react";
 import { FiGithub, FiZap } from "react-icons/fi";
 import { StylishBtn } from "../components";
+import Link from "next/link";
 import { SignedIn, SignedOut } from "@clerk/clerk-react";
 import Header from "../components/core/Header";
 
@@ -35,17 +36,24 @@ const index = () => {
               <SignedOut>Signed Out</SignedOut>
             </p>
             <div className="flex mt-3">
-              <StylishBtn
-                text="Try Now"
-                icon1={<FiZap className="text-xl ml-2" />}
-                icon={<FiZap className="text-xl ml-2 text-[#fff]" />}
-              />
+              <Link href="/app">
+                <a>
+                  <StylishBtn
+                    text="Try Now"
+                    icon1={<FiZap className="text-xl ml-2" />}
+                    icon={<FiZap className="text-xl ml-2 text-[#fff]" />}
+                  />
+                </a>
+              </Link>
+
               <div className="ml-1">
-                <StylishBtn
-                  text="50 Stars"
-                  icon1={<FiGithub className="text-xl ml-2" />}
-                  icon={<FiGithub className="text-xl ml-2 text-[#fff]" />}
-                />
+                <a href="https://github.com/saviomartin/slickr" target="_blank">
+                  <StylishBtn
+                    text="50 Stars"
+                    icon1={<FiGithub className="text-xl ml-2" />}
+                    icon={<FiGithub className="text-xl ml-2 text-[#fff]" />}
+                  />
+                </a>
               </div>
             </div>
           </div>
