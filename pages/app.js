@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { Rnd, LeftBar, Editor } from "../components"; // Components
+import { Rnd, LeftBar, Editor, Loader } from "../components"; // Components
 import { getTemplate } from "../components/helper"; // helpers
 
 const app = (props) => {
@@ -75,7 +75,9 @@ const app = (props) => {
           />
         </>
       ) : (
-        "loading"
+        <div className="flex h-full w-full items-center justify-center">
+          <Loader />
+        </div>
       )}
     </div>
   );
