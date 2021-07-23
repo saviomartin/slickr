@@ -2,8 +2,25 @@ import { useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
 import "tailwindcss/tailwind.css";
 import "../styles/App.css";
+import {
+  ClerkProvider,
+  SignedIn,
+  SignedOut,
+  RedirectToSignIn,
+} from "@clerk/clerk-react";
+import { useRouter } from "next/router";
+
+const clerkFrontendAPI = process.env.NEXT_PUBLIC_CLERK_FRONTEND_API;
+
+const publicPages = [
+  "/",
+  "/app",
+  "/sign-in/[[...index]]",
+  "/sign-up/[[...index]]",
+];
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
@@ -21,14 +38,30 @@ function MyApp({ Component, pageProps }) {
   };
 
   return (
-    <div
-      className={`w-full h-full overflow-x-hidden ${
-        darkMode ? "dark text-white" : "light"
-      }"`}
+    <ClerkProvider
+      frontendApi={clerkFrontendAPI}
+      navigate={(to) => router.push(to)}
     >
-      <Toaster position="bottom-right" reverseOrder={false} />
-      <Component {...pageProps} {...props} />
-    </div>
+      <div
+        className={`w-full h-full overflow-x-hidden ${
+          darkMode ? "dark text-white" : "light"
+        }"`}
+      >
+        <Toaster position="bottom-right" reverseOrder={false} />
+        {publicPages.includes(router.pathname) ? (
+          <Component {...pageProps} {...props} />
+        ) : (
+          <>
+            <SignedIn>
+              <Component {...pageProps} {...props} />
+            </SignedIn>
+            <SignedOut>
+              <RedirectToSignIn />
+            </SignedOut>
+          </>
+        )}
+      </div>
+    </ClerkProvider>
   );
 }
 
