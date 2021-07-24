@@ -117,9 +117,9 @@ You are all set! Open [localhost:3000](http://localhost:3000/) to see the app.
 
 - [Next JS](https://nextjs.org/)
 - [Clerk](https://clerk.dev/): Complete User Authentication
-- [react-color]: for color pickers
-- [html2canvas]: for export as PNG, JPG, SVG
-- [react-rnd]: for draggable and resizable components
+- [react-color](https://casesandberg.github.io/react-color/): for color pickers
+- [html2canvas](https://html2canvas.hertzen.com/): for export as PNG, JPG, SVG
+- [react-rnd](https://github.com/bokuweb/react-rnd): for draggable and resizable components
 - [react-icons](https://react-icons.github.io/react-icons/): for icons
 - [nprogress](https://www.npmjs.com/package/nprogress): for slim progressbars
 - [react-hot-toast](https://react-hot-toast.com/): for toasts
