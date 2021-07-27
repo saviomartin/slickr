@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 // icons
 import { FiGithub, FiZap } from "react-icons/fi";
@@ -10,6 +10,22 @@ import { StylishBtn, Header } from "../components";
 import Link from "next/link";
 
 const index = () => {
+  const [starCount, setStarCount] = useState(1);
+
+  const fetchStarCount = () => {
+    // fetch
+    fetch("https://api.github.com/repos/saviomartin/slickr")
+      .then((response) => response.json())
+      .then((json) => {
+        // update
+        setStarCount(json.stargazers_count);
+      });
+  };
+
+  // fetch on load once
+  useEffect(() => {
+    fetchStarCount();
+  }, []);
   return (
     <div className="home h-screen w-full overflow-hidden flex items-center justify-center">
       <div className="h-[95%] w-[95%] rounded-md glassmorphism border border-[#1CC8EE85]">
@@ -51,7 +67,7 @@ const index = () => {
               <div className="ml-1">
                 <a href="https://github.com/saviomartin/slickr" target="_blank">
                   <StylishBtn
-                    text="50 Stars"
+                    text={`${starCount} Stars`}
                     icon1={<FiGithub className="text-xl ml-2" />}
                     icon={<FiGithub className="text-xl ml-2 text-[#fff]" />}
                   />
