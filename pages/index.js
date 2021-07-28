@@ -63,9 +63,9 @@ const index = () => {
       <YTModal open={showYt} setOpen={setShowYt} />
       <div className="h-[95%] w-[95%] rounded-md glassmorphism border border-[#1CC8EE85]">
         <Header />
-        <div className="flex h-[calc(100%-50px)]">
-          <div className="w-6/12 h-full flex flex-col items-start justify-center pl-8">
-            <h1 className="font-bold text-[2.55em] leading-[1.2em] text-[#14142B]">
+        <div className="h-auto xl:h-[calc(100%-50px)] lg:h-[calc(100%-50px)] flex flex-col lg:flex-row xl:flex-row py-4">
+          <div className="w-full lg:w-6/12 xl:w-6/12 h-full flex flex-col items-start justify-center pl-8">
+            <h1 className="font-bold text-2xl lg:text-[2.55em] xl:text-[2.55em] lg:leading-[1.2em] xl:leading-[1.2em] text-[#14142B]">
               The most powerful cover image designer for your {""}
               <div className="flex items-center">
                 <a
@@ -82,7 +82,7 @@ const index = () => {
                 />
               </div>
             </h1>
-            <p className="text-[#6E7191] mt-4">
+            <p className="text-[#6E7191] mt-4 text-xs lg:text-base xl:text-base">
               Enjoy creating cover image for your hashnode blog like never
               before, get started in seconds 🎉
             </p>
@@ -108,7 +108,7 @@ const index = () => {
               </div>
             </div>
           </div>
-          <div className="w-6/12 h-full flex flex-col items-center justify-center">
+          <div className="w-full px-6 lg:px-0 xl:px-0 lg:w-6/12 xl:w-6/12 h-auto xl:h-full lg:h-full flex flex-col items-center justify-center py-3">
             <Btn onClick={() => setShowYt(true)}>
               <div className="bg-app-graient-to-l p-[2px] rounded-md relative">
                 <img
