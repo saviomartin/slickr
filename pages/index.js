@@ -3,14 +3,46 @@ import React, { useEffect, useState } from "react";
 // icons
 import { FiGithub, FiZap } from "react-icons/fi";
 
+// modal popup for material ui
+import Modal from "@material-ui/core/Modal";
+import Backdrop from "@material-ui/core/Backdrop";
+import Fade from "@material-ui/core/Fade";
+
 // components
-import { StylishBtn, Header } from "../components";
+import { StylishBtn, Header, Btn } from "../components";
 
 // next js
 import Link from "next/link";
+import { BsFillPlayFill } from "react-icons/bs";
+
+const YTModal = ({ open, setOpen }) => {
+  return (
+    <Modal
+      open={open}
+      onClose={() => setOpen(false)}
+      className="flex items-center justify-center"
+      closeAfterTransition
+      BackdropComponent={Backdrop}
+      BackdropProps={{
+        timeout: 500,
+      }}
+    >
+      <Fade in={open}>
+        <iframe
+          className="w-10/12 h-5/12 lg:w-[896px] lg:h-[504px] xl:w-[896px] xl:h-[504px]"
+          src="https://www.youtube.com/embed/N4kSXdyR_Zc"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </Fade>
+    </Modal>
+  );
+};
 
 const index = () => {
   const [starCount, setStarCount] = useState(1);
+  const [showYt, setShowYt] = useState(false);
 
   const fetchStarCount = () => {
     // fetch
@@ -28,6 +60,7 @@ const index = () => {
   }, []);
   return (
     <div className="home h-screen w-full overflow-hidden flex items-center justify-center">
+      <YTModal open={showYt} setOpen={setShowYt} />
       <div className="h-[95%] w-[95%] rounded-md glassmorphism border border-[#1CC8EE85]">
         <Header />
         <div className="flex h-[calc(100%-50px)]">
@@ -75,7 +108,20 @@ const index = () => {
               </div>
             </div>
           </div>
-          <div className="w-6/12 h-full"></div>
+          <div className="w-6/12 h-full flex flex-col items-center justify-center">
+            <Btn onClick={() => setShowYt(true)}>
+              <div className="bg-app-graient-to-l p-[2px] rounded-md relative">
+                <img
+                  src="/assets/cover.png"
+                  alt=""
+                  className="w-[500px] rounded-md"
+                />
+                <div className="bg-app-graient-to-l p-4 rounded-full position-tracker duration-500 cursor-pointer border top-0 left-0 ">
+                  <BsFillPlayFill className="text-white text-3xl transform hover:scale-125" />
+                </div>
+              </div>
+            </Btn>
+          </div>
         </div>
       </div>
     </div>
