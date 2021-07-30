@@ -39,7 +39,7 @@
 
 Slick is the most powerful and the easiest app to create beautiful cover images for your hashnode blog. Slickr lets you be flexible by handling backgrounds, gradients, patterns, images, icons, bookmarks, uploads and a lot more. You can drag, resize and position your components and give a new feel to your blog. When you're done export it as PNG, JPG, or SVG. Say hello to Slickr 🤟
 
-[Read blog to understand better 📖]()
+[Read blog to understand better 📖](https://savio.xyz/introducing-slickr-the-most-powerful-cover-image-generator-for-your-hashnode-blog)
 
 ## 🚀 Demo
 
