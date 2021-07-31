@@ -87,6 +87,7 @@ const TextTab = ({ title, setTitle, name }) => {
       <p className="text-xs text-[#666] dark:text-[#bbb] my-3">Font Size</p>
       <TextField
         label="Font Size"
+        type="number"
         variant="outlined"
         size="small"
         value={title.fontSize}
@@ -96,6 +97,7 @@ const TextTab = ({ title, setTitle, name }) => {
       <p className="text-xs text-[#666] dark:text-[#bbb] my-3">Line Height</p>
       <TextField
         label="Line Height"
+        type="number"
         variant="outlined"
         size="small"
         value={title.lineHeight}
