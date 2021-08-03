@@ -88,6 +88,7 @@ const IconsPicker = ({ data, setData }) => {
       <p className="text-xs text-[#666] dark:text-[#bbb] my-3">Icon Size</p>
       <TextField
         label="Font Size"
+        type="number"
         variant="outlined"
         size="small"
         value={data.icon.fontSize}
