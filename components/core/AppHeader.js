@@ -75,7 +75,7 @@ const AppHeader = ({
         </Btn>
         <Menu
           getContentAnchorEl={null}
-          className="!mt-1 !block"
+          className="!mt-1 !block menu"
           anchorOrigin={{
             vertical: "bottom",
             horizontal: "right",
@@ -88,7 +88,6 @@ const AppHeader = ({
           anchorEl={anchorEl}
           open={Boolean(anchorEl)}
           onClose={() => setAnchorEl(null)}
-          className="menu"
         >
           <MenuItem>
             <div
