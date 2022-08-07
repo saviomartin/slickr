@@ -44,7 +44,7 @@ const app = (props) => {
         </Rnd>
         <Rnd width="auto" x={900} y={400}>
           <i
-            class={`devicon-${data.icon.name}-plain`}
+            className={`devicon-${data.icon.name}-plain`}
             style={{
               fontSize: `${data.icon.fontSize}px`,
               color: data.icon.color,
