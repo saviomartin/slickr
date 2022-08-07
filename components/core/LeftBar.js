@@ -60,10 +60,10 @@ const LeftBar = ({ data, setData, children, setChildren }) => {
   ];
 
   const props = {
-    data: data,
-    setData: setData,
-    children: children,
-    setChildren: setChildren,
+    data,
+    setData,
+    children,
+    setChildren,
   };
 
   const twitterShareLink =
